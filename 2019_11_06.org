@@ -10,7 +10,7 @@
   Ниже приведен пример того, как должен выглядеть минимальный конфиг
   для этого семинара:
   
-  #+INCLUDE: ~/.emacs src elisp
+  #+INCLUDE: .emacs src elisp
 
 * [[https://orgmode.org/][org mode]]. Как организовать работу. 
   #+BEGIN_QUOTE

@@ -3,22 +3,29 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2019-11-06 Wed 23:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>6.11.2019</title>
-<!-- 2019-11-06 Wed 23:30 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -45,27 +52,111 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -85,6 +176,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="org.css" />
@@ -95,7 +187,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -144,56 +236,56 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Минимальная конфигурация emacs</a></li>
-<li><a href="#sec-2">2. org mode. Как организовать работу.</a>
+<li><a href="#orga5f0740">1. Минимальная конфигурация emacs</a></li>
+<li><a href="#orgf1433f7">2. org mode. Как организовать работу.</a>
 <ul>
-<li><a href="#sec-2-1">2.1. Что почитать:</a></li>
+<li><a href="#orgb35ef48">2.1. Что почитать:</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. Dat protocol. Как обмениваться файлами без облаков.</a>
+<li><a href="#org4f559d5">3. Dat protocol. Как обмениваться файлами без облаков.</a>
 <ul>
-<li><a href="#sec-3-1">3.1. Что это такое</a></li>
-<li><a href="#sec-3-2">3.2. Какие есть решения</a></li>
-<li><a href="#sec-3-3">3.3. Установка dat через npm</a>
+<li><a href="#org650c527">3.1. Что это такое</a></li>
+<li><a href="#org7294c13">3.2. Какие есть решения</a></li>
+<li><a href="#orge26d8b0">3.3. Установка dat через npm</a>
 <ul>
-<li><a href="#sec-3-3-1">3.3.1. Нужен nodejs</a></li>
-<li><a href="#sec-3-3-2">3.3.2. Нужен npm - менеджер пакетов</a></li>
-<li><a href="#sec-3-3-3">3.3.3. Настройка npm</a></li>
-<li><a href="#sec-3-3-4">3.3.4. Ставим dat командой</a></li>
+<li><a href="#org659faf5">3.3.1. Нужен nodejs</a></li>
+<li><a href="#org7e35f2c">3.3.2. Нужен npm - менеджер пакетов</a></li>
+<li><a href="#orgf88f35e">3.3.3. Настройка npm</a></li>
+<li><a href="#org0bdf758">3.3.4. Ставим dat командой</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-4">3.4. Используем dat</a>
+<li><a href="#orgc1528de">3.4. Используем dat</a>
 <ul>
-<li><a href="#sec-3-4-1">3.4.1. Желающий поделиться</a></li>
-<li><a href="#sec-3-4-2">3.4.2. Желающий получить</a></li>
+<li><a href="#org92c03e2">3.4.1. Желающий поделиться</a></li>
+<li><a href="#org49b59c2">3.4.2. Желающий получить</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-4">4. Экспортируем org файл в html</a></li>
-<li><a href="#sec-5">5. Git</a>
+<li><a href="#orge067b89">4. Экспортируем org файл в html</a></li>
+<li><a href="#org08927bc">5. Git</a>
 <ul>
-<li><a href="#sec-5-1">5.1. Что почитать:</a></li>
+<li><a href="#org183f785">5.1. Что почитать:</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">6. Работа в tmux</a>
+<li><a href="#orgc7b092a">6. Работа в tmux</a>
 <ul>
-<li><a href="#sec-6-1">6.1. Что почитать:</a></li>
-<li><a href="#sec-6-2">6.2. Часто используемые сочетания клавиш</a></li>
+<li><a href="#orgb201b2d">6.1. Что почитать:</a></li>
+<li><a href="#orga534f07">6.2. Часто используемые сочетания клавиш</a></li>
 </ul>
 </li>
-<li><a href="#sec-7">7. Подвал</a>
+<li><a href="#org48de7a5">7. Подвал</a>
 <ul>
-<li><a href="#sec-7-1">7.1. Был вопрос про <code>BEGIN_SRC</code></a></li>
-<li><a href="#sec-7-2">7.2. Надо подключить таблицу стилей</a></li>
+<li><a href="#orgd1eb6d6">7.1. Был вопрос про <code>BEGIN_SRC</code></a></li>
+<li><a href="#orge5969e5">7.2. Надо подключить таблицу стилей</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Минимальная конфигурация emacs</h2>
+<div id="outline-container-orga5f0740" class="outline-2">
+<h2 id="orga5f0740"><span class="section-number-2">1</span> Минимальная конфигурация emacs</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Конфигурация emacs лежит в файле: <code>~/.emacs</code>. Открыть файл можно с
@@ -206,125 +298,49 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="org-src-container">
-
-<pre class="src src-elisp">;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+<pre class="src src-elisp"><span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Added by Package.el.  This must come before configurations of</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">installed packages.  Don't delete this line.  If you don't want it,</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">just comment it out by adding a semicolon to the start of the line.</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">You may delete these explanatory comments.</span>
 
 (package-initialize)
 
-(setq inhibit-startup-message t)
-(tool-bar-mode -1)
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">(setq inhibit-startup-message t)</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">(tool-bar-mode -1)</span>
 
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(<span style="color: #00ffff;">require</span> '<span style="color: #8470ff; font-weight: bold;">package</span>)
+(<span style="color: #00ffff;">setq</span> package-enable-at-startup nil)
+(add-to-list 'package-archives '(<span style="color: #ffc1c1;">"melpa"</span> . <span style="color: #ffc1c1;">"http://melpa.org/packages/"</span>))
 
-(unless (package-installed-p 'use-package)
+(<span style="color: #00ffff;">unless</span> (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-(global-set-key (kbd "C-z") 'undo)
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">try</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
 
-(use-package try
-  :ensure t)
-
-(use-package which-key
-  :ensure t
-  :config (which-key-mode))
-
-(use-package racket-mode
-  :ensure t)
-
-;; Org-mode stuff
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-
-(setq org-log-done 'time)
-
-;; Включение auto-fill в org-mode
-(add-hook 'org-mode-hook 'auto-fill-mode)
-
-;; Отображение картинок inline в org-mode
-(setq org-startup-with-inline-images "inlineimages")
-(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
-
-
-;; Настройка org-agenda
-(setq org-default-notes-file "~/org/notes.org")
-(global-set-key "\C-ca" 'org-agenda)
-(setq org-agenda-files '("/home/syncthing/28flat/настя.org"
-			 "/home/syncthing/28flat/2018_alay-pamir.org"))
-
-(setq org-todo-keywords
-      '((sequence "TODO" "DELEGATED" "|" "DONE" "MOVED")
-	(sequence "ПОДУМАТЬ" "|" "ПОДУМАЛ")
-	(sequence "ПОСМОТРЕТЬ" "|" "ПОСМОТРЕЛ")))
-
-(setq org-todo-keyword-faces
-      '(("TODO" . org-warning)
-	("ПОДУМАТЬ" . (:foreground "yellow"
-				   :weight bold))
-	("ПОСМОТРЕТЬ" . (:background "SteelBlue"
-				     :weight bold))))
-
-
-
-;; Настройка поиска файлов
-;;(setq indo-enable-flex-matching t)
-;;(setq ido-everywhere t)
-;;(ido-mode 1)
-
-;; Настройка ibuffer
-(defalias 'list-buffers 'ibuffer-other-window)
-
-;; Настройка переключения между окнами
-(use-package ace-window
-  :ensure t
-  :init
-  (progn
-    (global-set-key [remap other-window] 'ace-window)
-    (custom-set-faces
-     '(aw-leading-char-face
-       ((t (:inherit ace-jump-face-foreground :height 3.0)))))))
-
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((C . t) (sh . t)))
-
-(add-to-list 'load-path "/nix/store/rp5c9rfpf08pxv950fg1wnlm5wrblswv-maxima-5.41.0")
-(autoload 'maxima-mode "maxima" "Maxima mode" t)
-(autoload 'imaxima "imaxima" "Frontend for maxima with Image support" t)
-(autoload 'maxima "maxima" "Maxima interaction" t)
-(autoload 'imath-mode "imath" "Imath mode for math formula input" t)
-(setq imaxima-use-maxima-mode-flag t)
-(add-to-list 'auto-mode-alist '("\\.ma[cx]" . maxima-mode))
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">htmlize</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (racket-mode ace-window org-bullets which-key try use-package))))
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">custom-set-variables was added by Custom.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If you edit it by hand, you could mess it up, so be careful.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Your init file should contain only one such instance.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If there is more than one, they won't work right.</span>
+ '(package-selected-packages (<span style="color: #00ffff;">quote</span> (htmlize try use-package))))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">custom-set-faces was added by Custom.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If you edit it by hand, you could mess it up, so be careful.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Your init file should contain only one such instance.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If there is more than one, they won't work right.</span>
+ )
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> <a href="https://orgmode.org/">org mode</a>. Как организовать работу.</h2>
+<div id="outline-container-orgf1433f7" class="outline-2">
+<h2 id="orgf1433f7"><span class="section-number-2">2</span> <a href="https://orgmode.org/">org mode</a>. Как организовать работу.</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -335,22 +351,22 @@ plain-text system.
 </blockquote>
 </div>
 
-<div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Что почитать:</h3>
+<div id="outline-container-orgb35ef48" class="outline-3">
+<h3 id="orgb35ef48"><span class="section-number-3">2.1</span> Что почитать:</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
-<li><a href="https://habr.com/ru/post/105300/">Введение в org-mode emacs на habr</a>
-</li>
+<li><a href="https://habr.com/ru/post/105300/">Введение в org-mode emacs на habr</a></li>
 </ol>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> <a href="https://dat.foundation/">Dat protocol</a>. Как обмениваться файлами без облаков.</h2>
+<div id="outline-container-org4f559d5" class="outline-2">
+<h2 id="org4f559d5"><span class="section-number-2">3</span> <a href="https://dat.foundation/">Dat protocol</a>. Как обмениваться файлами без облаков.</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Что это такое</h3>
+</div>
+<div id="outline-container-org650c527" class="outline-3">
+<h3 id="org650c527"><span class="section-number-3">3.1</span> Что это такое</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 У вас много файликов на компе и надо пошарить директорию среди
@@ -359,49 +375,45 @@ plain-text system.
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Какие есть решения</h3>
+<div id="outline-container-org7294c13" class="outline-3">
+<h3 id="org7294c13"><span class="section-number-3">3.2</span> Какие есть решения</h3>
 <div class="outline-text-3" id="text-3-2">
 <ol class="org-ol">
-<li>ftp сервер и web сервер
-</li>
-<li>облачные хранилища - <span class="underline">вот так нельзя!</span>
-</li>
+<li>ftp сервер и web сервер</li>
+<li>облачные хранилища - <span class="underline">вот так нельзя!</span></li>
 <li>torrent - хороший инструмент, но в нем нет возможности
-синхронизовывать обновления директории
-</li>
-<li>dat протокол
-</li>
+синхронизовывать обновления директории</li>
+<li>dat протокол</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Установка dat через npm</h3>
+<div id="outline-container-orge26d8b0" class="outline-3">
+<h3 id="orge26d8b0"><span class="section-number-3">3.3</span> Установка dat через npm</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Так обычно делают javascript программисты.
 </p>
 </div>
 
-<div id="outline-container-sec-3-3-1" class="outline-4">
-<h4 id="sec-3-3-1"><span class="section-number-4">3.3.1</span> Нужен nodejs</h4>
+<div id="outline-container-org659faf5" class="outline-4">
+<h4 id="org659faf5"><span class="section-number-4">3.3.1</span> Нужен nodejs</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 У обладателей NixOS он уже стоит.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-3-3-2" class="outline-4">
-<h4 id="sec-3-3-2"><span class="section-number-4">3.3.2</span> Нужен npm - менеджер пакетов</h4>
+<div id="outline-container-org7e35f2c" class="outline-4">
+<h4 id="org7e35f2c"><span class="section-number-4">3.3.2</span> Нужен npm - менеджер пакетов</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 nodejs тянет за собой npm.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-3-3-3" class="outline-4">
-<h4 id="sec-3-3-3"><span class="section-number-4">3.3.3</span> Настройка npm</h4>
+<div id="outline-container-orgf88f35e" class="outline-4">
+<h4 id="orgf88f35e"><span class="section-number-4">3.3.3</span> Настройка npm</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 Надо сделать так, чтобы npm ставил программы в определенную
@@ -412,18 +424,16 @@ nodejs тянет за собой npm.
 Для этого надо отредактировать файлик <code>~/.npmrc</code>:
 </p>
 <div class="org-src-container">
-
-<pre class="src src-sh">prefix = ${HOME}/.npm-packages
+<pre class="src src-sh">prefix = ${<span style="color: #7fffd4;">HOME</span>}/.npm-packages
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-3-3-4" class="outline-4">
-<h4 id="sec-3-3-4"><span class="section-number-4">3.3.4</span> Ставим dat командой</h4>
+<div id="outline-container-org0bdf758" class="outline-4">
+<h4 id="org0bdf758"><span class="section-number-4">3.3.4</span> Ставим dat командой</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <div class="org-src-container">
-
 <pre class="src src-sh">npm install -g dat
 </pre>
 </div>
@@ -431,24 +441,23 @@ nodejs тянет за собой npm.
 </div>
 </div>
 
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Используем dat</h3>
+<div id="outline-container-orgc1528de" class="outline-3">
+<h3 id="orgc1528de"><span class="section-number-3">3.4</span> Используем dat</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Сценарий: один желает делиться контентом некой директории <code>foo</code>,
 остальные желают иметь свежую версию этого контента.
 </p>
 </div>
-<div id="outline-container-sec-3-4-1" class="outline-4">
-<h4 id="sec-3-4-1"><span class="section-number-4">3.4.1</span> Желающий поделиться</h4>
+<div id="outline-container-org92c03e2" class="outline-4">
+<h4 id="org92c03e2"><span class="section-number-4">3.4.1</span> Желающий поделиться</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 Идет в директорию <code>foo</code> и запускает там <code>dat</code>:
 </p>
 <div class="org-src-container">
-
-<pre class="src src-sh">cd foo
-~/.npm-packages/bin/dat share
+<pre class="src src-sh"><span style="color: #b0c4de;">cd</span> foo
+~/.npm-packages/bin/dat share 
 </pre>
 </div>
 
@@ -458,15 +467,14 @@ nodejs тянет за собой npm.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-3-4-2" class="outline-4">
-<h4 id="sec-3-4-2"><span class="section-number-4">3.4.2</span> Желающий получить</h4>
+<div id="outline-container-org49b59c2" class="outline-4">
+<h4 id="org49b59c2"><span class="section-number-4">3.4.2</span> Желающий получить</h4>
 <div class="outline-text-4" id="text-3-4-2">
 <p>
 Желающий получить <code>foo</code> на своей машине выполняет:
 </p>
 <div class="org-src-container">
-
-<pre class="src src-sh">~/.npm-packages/bin/dat clone &lt;dat ссылка&gt; foo
+<pre class="src src-sh">~/.npm-packages/bin/dat clone &lt;dat &#1089;&#1089;&#1099;&#1083;&#1082;&#1072;&gt; foo
 </pre>
 </div>
 
@@ -481,8 +489,7 @@ nodejs тянет за собой npm.
 запустить там <code>dat sync</code>:
 </p>
 <div class="org-src-container">
-
-<pre class="src src-sh">cd foo
+<pre class="src src-sh"><span style="color: #b0c4de;">cd</span> foo
 ~/.npm-packages/bin/dat sync
 </pre>
 </div>
@@ -491,8 +498,8 @@ nodejs тянет за собой npm.
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Экспортируем org файл в html</h2>
+<div id="outline-container-orge067b89" class="outline-2">
+<h2 id="orge067b89"><span class="section-number-2">4</span> Экспортируем org файл в html</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Для экспорта надо набрать в emacs сочетание клавиш: <code>C-c-e h h</code>.
@@ -500,98 +507,88 @@ nodejs тянет за собой npm.
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Git</h2>
+<div id="outline-container-org08927bc" class="outline-2">
+<h2 id="org08927bc"><span class="section-number-2">5</span> Git</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Что почитать:</h3>
+</div>
+<div id="outline-container-org183f785" class="outline-3">
+<h3 id="org183f785"><span class="section-number-3">5.1</span> Что почитать:</h3>
 <div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
-<li><a href="https://git-scm.com/book/ru/v2">git book</a>
-</li>
+<li><a href="https://git-scm.com/book/ru/v2">git book</a></li>
 </ol>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Работа в tmux</h2>
+<div id="outline-container-orgc7b092a" class="outline-2">
+<h2 id="orgc7b092a"><span class="section-number-2">6</span> Работа в tmux</h2>
 <div class="outline-text-2" id="text-6">
-</div><div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Что почитать:</h3>
+</div>
+<div id="outline-container-orgb201b2d" class="outline-3">
+<h3 id="orgb201b2d"><span class="section-number-3">6.1</span> Что почитать:</h3>
 <div class="outline-text-3" id="text-6-1">
 <ol class="org-ol">
-<li><a href="https://habr.com/ru/post/126996/">Краткая шпаргалка по tmux (менеджеру терминалов)</a> - статья на Хабре
-</li>
-<li><a href="https://leimao.github.io/blog/Tmux-Tutorial/">Tmux Tutorial</a>
-</li>
-<li><a href="https://danielmiessler.com/study/tmux/">Tactical tmux: The 10 Most Important Commands</a>
-</li>
+<li><a href="https://habr.com/ru/post/126996/">Краткая шпаргалка по tmux (менеджеру терминалов)</a> - статья на Хабре</li>
+<li><a href="https://leimao.github.io/blog/Tmux-Tutorial/">Tmux Tutorial</a></li>
+<li><a href="https://danielmiessler.com/study/tmux/">Tactical tmux: The 10 Most Important Commands</a></li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-sec-6-2" class="outline-3">
-<h3 id="sec-6-2"><span class="section-number-3">6.2</span> Часто используемые сочетания клавиш</h3>
+<div id="outline-container-orga534f07" class="outline-3">
+<h3 id="orga534f07"><span class="section-number-3">6.2</span> Часто используемые сочетания клавиш</h3>
 <div class="outline-text-3" id="text-6-2">
 <dl class="org-dl">
-<dt> C-b c </dt><dd>создать окно
-</dd>
-<dt> C-b n </dt><dd>переключиться на следующее окно
-</dd>
-<dt> C-b d </dt><dd>отсоединиться от tmux
-</dd>
-<dt> <code>tmux attach</code> </dt><dd>присоединиться к сессии tmux
-</dd>
-<dt> C-b s </dt><dd>выбор сессии tmux
-</dd>
+<dt>C-b c</dt><dd>создать окно</dd>
+<dt>C-b n</dt><dd>переключиться на следующее окно</dd>
+<dt>C-b d</dt><dd>отсоединиться от tmux</dd>
+<dt><code>tmux attach</code></dt><dd>присоединиться к сессии tmux</dd>
+<dt>C-b s</dt><dd>выбор сессии tmux</dd>
 </dl>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Подвал</h2>
+<div id="outline-container-org48de7a5" class="outline-2">
+<h2 id="org48de7a5"><span class="section-number-2">7</span> Подвал</h2>
 <div class="outline-text-2" id="text-7">
-</div><div id="outline-container-sec-7-1" class="outline-3">
-<h3 id="sec-7-1"><span class="section-number-3">7.1</span> Был вопрос про <code>BEGIN_SRC</code></h3>
+</div>
+<div id="outline-container-orgd1eb6d6" class="outline-3">
+<h3 id="orgd1eb6d6"><span class="section-number-3">7.1</span> Был вопрос про <code>BEGIN_SRC</code></h3>
 <div class="outline-text-3" id="text-7-1">
 <div class="org-src-container">
+<pre class="src src-python"><span style="color: #00ffff;">def</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">f</span>(x):
+    <span style="color: #00ffff;">return</span> x*x
 
-<pre class="src src-python">def f(x):
-    return x*x
-
-for i in range(100):
-    v = f(i)
-    print(v)
+<span style="color: #00ffff;">for</span> i <span style="color: #00ffff;">in</span> <span style="color: #b0c4de;">range</span>(100):
+    <span style="color: #7fffd4;">v</span> = f(i)
+    <span style="color: #00ffff;">print</span>(v)
 </pre>
 </div>
 
 <div class="org-src-container">
-
 <pre class="src src-elisp">(+ 2 3 4)
 </pre>
 </div>
 
 <div class="org-src-container">
-
-<pre class="src src-c">int main () {
-  char *str = "Hello world";
-  printf("%s", str);
-  return 0;
+<pre class="src src-c"><span style="color: #63b8ff;">int</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">main</span> () {
+  <span style="color: #63b8ff;">char</span> *<span style="color: #7fffd4;">str</span> = <span style="color: #ffc1c1;">"Hello world"</span>;
+  printf(<span style="color: #ffc1c1;">"%s"</span>, str);
+  <span style="color: #00ffff;">return</span> 0;
 }
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-sec-7-2" class="outline-3">
-<h3 id="sec-7-2"><span class="section-number-3">7.2</span> Надо подключить таблицу стилей</h3>
+<div id="outline-container-orge5969e5" class="outline-3">
+<h3 id="orge5969e5"><span class="section-number-3">7.2</span> Надо подключить таблицу стилей</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-11-06 Wed 23:30</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2019-11-06 Wed 23:37</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
