@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-11-06 Wed 20:50 -->
+<!-- 2019-11-06 Wed 22:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>6.11.2019</title>
@@ -187,7 +187,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -236,42 +236,41 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbd14358">1. Конфиг emacs</a></li>
-<li><a href="#orgf088c01">2. org mode</a></li>
-<li><a href="#org795c4a9">3. Dat protocol. Как обмениваться файлами без облаков.</a>
+<li><a href="#org6687152">1. Минимальная конфигурация emacs</a></li>
+<li><a href="#org4cf78a7">2. org mode. Как организовать работу.</a></li>
+<li><a href="#org3f148b6">3. Dat protocol. Как обмениваться файлами без облаков.</a>
 <ul>
-<li><a href="#orge4194de">3.1. Что это такое</a></li>
-<li><a href="#orgd7809e3">3.2. Какие есть решения?</a></li>
-<li><a href="#org52d1e8d">3.3. Установка dat</a>
+<li><a href="#org455b23b">3.1. Что это такое</a></li>
+<li><a href="#orgff5240b">3.2. Какие есть решения?</a></li>
+<li><a href="#org2ed53ad">3.3. Установка dat через npm</a>
 <ul>
-<li><a href="#org4c5bbc0">3.3.1. <span class="done DONE">DONE</span> Нужен nodejs</a></li>
-<li><a href="#org88d15cd">3.3.2. <span class="done DONE">DONE</span> нужен npm - менеджер пакетов</a></li>
-<li><a href="#org8421118">3.3.3. <span class="done DONE">DONE</span> Настройка npm</a></li>
-<li><a href="#org334e142">3.3.4. Ставим dat командой</a></li>
+<li><a href="#org0cb432b">3.3.1. <span class="done DONE">DONE</span> Нужен nodejs</a></li>
+<li><a href="#org5f1d91f">3.3.2. <span class="done DONE">DONE</span> нужен npm - менеджер пакетов</a></li>
+<li><a href="#org4a940fc">3.3.3. <span class="done DONE">DONE</span> Настройка npm</a></li>
+<li><a href="#org231edb3">3.3.4. Ставим dat командой</a></li>
 </ul>
 </li>
-<li><a href="#org5160fc4">3.4. Используем dat</a>
+<li><a href="#orgb13563e">3.4. Используем dat</a>
 <ul>
-<li><a href="#orgc03267c">3.4.1. Шарим содержимое директории с помощью dat</a></li>
-<li><a href="#org4ef441f">3.4.2. Клонируем директорию по dat ссылке</a></li>
-<li><a href="#orga2c9220">3.4.3. Включение непрерывной синхронизации</a></li>
+<li><a href="#org9e58de6">3.4.1. Желающий поделиться</a></li>
+<li><a href="#orgb29089f">3.4.2. Желающий получить <code>foo</code> на своей машине выполняет</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf9ee056">4. Экспортируем org файл в html</a></li>
-<li><a href="#orgc61b11e">5. Git</a>
+<li><a href="#org04eb257">4. Экспортируем org файл в html</a></li>
+<li><a href="#orgf40e754">5. Git</a>
 <ul>
-<li><a href="#org9619cc9">5.1. Что почитать</a></li>
+<li><a href="#org012773b">5.1. Что почитать</a></li>
 </ul>
 </li>
-<li><a href="#orgad2ef0f">6. Подвал</a>
+<li><a href="#org9a67987">6. Подвал</a>
 <ul>
-<li><a href="#org670f3bf">6.1. Был вопрос про <code>BEGIN_SRC</code></a></li>
-<li><a href="#orgddd312c">6.2. <span class="todo TODO">TODO</span> Надо подключить таблицу стилей.</a></li>
-<li><a href="#org9713743">6.3. <span class="todo TODO">TODO</span> работа в tmux</a>
+<li><a href="#org1d0ea45">6.1. Был вопрос про <code>BEGIN_SRC</code></a></li>
+<li><a href="#org7e912e8">6.2. <span class="todo TODO">TODO</span> Надо подключить таблицу стилей.</a></li>
+<li><a href="#org8504636">6.3. <span class="todo TODO">TODO</span> работа в tmux</a>
 <ul>
-<li><a href="#org941de1d">6.3.1. Часто используемые сочетания клавиш</a></li>
+<li><a href="#orged45d9c">6.3.1. Часто используемые сочетания клавиш</a></li>
 </ul>
 </li>
 </ul>
@@ -280,58 +279,275 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgbd14358" class="outline-2">
-<h2 id="orgbd14358"><span class="section-number-2">1</span> Конфиг emacs</h2>
+<div id="outline-container-org6687152" class="outline-2">
+<h2 id="org6687152"><span class="section-number-2">1</span> Минимальная конфигурация emacs</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Конфигурация emacs лежит в файле: <code>~/.emacs</code>.
+Конфигурация emacs лежит в файле: <code>~/.emacs</code>. Открыть файл можно с
+помощью любого текстового редактора.
+</p>
+
+<p>
+Ниже приведен пример того, как должен выглядеть минимальный конфиг
+для этого семинара:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp"><span style="color: #ffff00;">;; </span><span style="color: #ffff00;">Added by Package.el.  This must come before configurations of</span>
-<span style="color: #ffff00;">;; </span><span style="color: #ffff00;">installed packages.  Don't delete this line.  If you don't want it,</span>
-<span style="color: #ffff00;">;; </span><span style="color: #ffff00;">just comment it out by adding a semicolon to the start of the line.</span>
-<span style="color: #ffff00;">;; </span><span style="color: #ffff00;">You may delete these explanatory comments.</span>
+<pre class="src src-elisp"><span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Added by Package.el.  This must come before configurations of</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">installed packages.  Don't delete this line.  If you don't want it,</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">just comment it out by adding a semicolon to the start of the line.</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">You may delete these explanatory comments.</span>
 
 (package-initialize)
 
-<span style="color: #ffff00;">;; </span><span style="color: #ffff00;">(setq inhibit-startup-message t)</span>
-<span style="color: #ffff00;">;; </span><span style="color: #ffff00;">(tool-bar-mode -1)</span>
+(<span style="color: #00ffff;">setq</span> inhibit-startup-message t)
+(tool-bar-mode -1)
 
-(<span style="color: #00ffff; font-weight: bold;">require</span> '<span style="color: #ff00ff;">package</span>)
-(<span style="color: #00ffff; font-weight: bold;">setq</span> package-enable-at-startup nil)
-(add-to-list 'package-archives '(<span style="color: #00ff00;">"melpa"</span> . <span style="color: #00ff00;">"http://melpa.org/packages/"</span>))
+(<span style="color: #00ffff;">require</span> '<span style="color: #8470ff; font-weight: bold;">package</span>)
+(<span style="color: #00ffff;">setq</span> package-enable-at-startup nil)
+(add-to-list 'package-archives '(<span style="color: #ffc1c1;">"melpa"</span> . <span style="color: #ffc1c1;">"http://melpa.org/packages/"</span>))
 
-(<span style="color: #00ffff; font-weight: bold;">unless</span> (package-installed-p 'use-package)
+(<span style="color: #00ffff;">unless</span> (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-(<span style="color: #00ffff; font-weight: bold;">use-package</span> <span style="color: #ff00ff;">try</span>
-  <span style="color: #0000ff; font-weight: bold;">:ensure</span> t)
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">try</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
 
-(<span style="color: #00ffff; font-weight: bold;">use-package</span> <span style="color: #ff00ff;">htmlize</span>
-  <span style="color: #0000ff; font-weight: bold;">:ensure</span> t)
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">extempore-mode</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">clojure-mode</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">cider</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">proof-general</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">company-coq</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+(add-hook 'coq-mode-hook #'company-coq-mode)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">which-key</span>
+  <span style="color: #b0c4de;">:ensure</span> t
+  <span style="color: #b0c4de;">:config</span> (which-key-mode))
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Org-mode stuff</span>
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">org-bullets</span>
+  <span style="color: #b0c4de;">:ensure</span> t
+  <span style="color: #b0c4de;">:config</span>
+  (add-hook 'org-mode-hook (<span style="color: #00ffff;">lambda</span> () (org-bullets-mode 1))))
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">org-board</span>
+  <span style="color: #b0c4de;">:ensure</span> t
+  <span style="color: #b0c4de;">:config</span>
+  (global-set-key (kbd <span style="color: #ffc1c1;">"C-c o"</span>) org-board-keymap))
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">htmlize</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">haskell-mode</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">racket-mode</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">geiser</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">paredit</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">paren-face</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(show-paren-mode 1)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">company</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">rust-mode</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">racer</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">flycheck</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">flycheck-rust</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">eldoc</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
+
+(add-hook 'prog-mode-hook 'company-mode)
+(add-hook 'rust-mode-hook  #'company-mode)
+(add-hook 'rust-mode-hook  #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+(add-hook 'rust-mode-hook
+          '(lambda ()
+             <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">(setq racer-cmd (concat (getenv "HOME") "/.rust-dev/racer/target/release/racer"))</span>
+             <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">TODO &#1090;&#1072;&#1082; &#1076;&#1077;&#1083;&#1072;&#1090;&#1100; &#1085;&#1077;&#1083;&#1100;&#1079;&#1103;!!!</span>
+             (<span style="color: #00ffff;">setq</span> racer-rust-src-path <span style="color: #ffc1c1;">"/home/lebedev/programs/rustc-1.27.0-src/src"</span>)
+             (local-set-key (kbd <span style="color: #ffc1c1;">"TAB"</span>) #'company-indent-or-complete-common)))
+
+
+(<span style="color: #00ffff;">setq</span> org-log-done 'time)
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">&#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1072; org-agenda</span>
+(<span style="color: #00ffff;">setq</span> org-default-notes-file <span style="color: #ffc1c1;">"~/org/notes.org"</span>)
+(global-set-key <span style="color: #ffc1c1;">"\C-ca"</span> 'org-agenda)
+(<span style="color: #00ffff;">setq</span> org-agenda-files '(<span style="color: #ffc1c1;">"~/org/journal"</span> <span style="color: #ffc1c1;">"~/org/ml"</span> <span style="color: #ffc1c1;">"~/org/life.org"</span> <span style="color: #ffc1c1;">"~/org/notes.org"</span>
+                         <span style="color: #ffc1c1;">"~/org/turclubmai.org"</span> <span style="color: #ffc1c1;">"~/org/bookmarks.org"</span>
+                         <span style="color: #ffc1c1;">"~/org/hacks.org"</span> <span style="color: #ffc1c1;">"~/org/credits.org"</span> <span style="color: #ffc1c1;">"~/org/travels/alay_pamir_2018/preparation.org"</span>
+                         <span style="color: #ffc1c1;">"~/org/admin.org"</span> <span style="color: #ffc1c1;">"~/org/emacs.org"</span> <span style="color: #ffc1c1;">"~/org/nixos.org"</span> <span style="color: #ffc1c1;">"~/org/shad"</span> <span style="color: #ffc1c1;">"~/org/miet.org"</span>
+                         <span style="color: #ffc1c1;">"~/travels/2019_kolvitskie/kolvitskie.org"</span>
+                         <span style="color: #ffc1c1;">"~/org/learn"</span>))
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">&#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1072; org-capture</span>
+(define-key global-map <span style="color: #ffc1c1;">"\C-cc"</span> 'org-capture)
+(<span style="color: #00ffff;">setq</span> org-capture-templates
+      '((<span style="color: #ffc1c1;">"t"</span> <span style="color: #ffc1c1;">"Todo"</span> entry (file+headline <span style="color: #ffc1c1;">"~/org/notes.org"</span> <span style="color: #ffc1c1;">"Tasks"</span>)
+         <span style="color: #ffc1c1;">"* TODO %?\n  %i\n  %a"</span>)
+        (<span style="color: #ffc1c1;">"b"</span> <span style="color: #ffc1c1;">"&#1050;&#1091;&#1087;&#1080;&#1090;&#1100;"</span> entry (file+headline <span style="color: #ffc1c1;">"~/org/notes.org"</span> <span style="color: #ffc1c1;">"&#1050;&#1091;&#1087;&#1080;&#1090;&#1100;"</span>)
+         <span style="color: #ffc1c1;">"* TODO %?\n  %i\n  %a"</span>)
+        (<span style="color: #ffc1c1;">"w"</span> <span style="color: #ffc1c1;">"Journal"</span> entry (file+datetree <span style="color: #ffc1c1;">"~/Development/gyro/journal.org"</span>)
+         <span style="color: #ffc1c1;">"* %?\n  Entered on %U\n  %i\n  %a"</span>)))
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">&#1042;&#1082;&#1083;&#1102;&#1095;&#1077;&#1085;&#1080;&#1077; auto-fill &#1074; org-mode</span>
+(add-hook 'org-mode-hook 'auto-fill-mode)
+
+
+(<span style="color: #00ffff;">setq</span> org-todo-keywords
+      '((sequence <span style="color: #ffc1c1;">"TODO"</span> <span style="color: #ffc1c1;">"DELEGATED"</span> <span style="color: #ffc1c1;">"|"</span> <span style="color: #ffc1c1;">"DONE"</span> <span style="color: #ffc1c1;">"MOVED"</span>)
+        (sequence <span style="color: #ffc1c1;">"&#1055;&#1054;&#1044;&#1059;&#1052;&#1040;&#1058;&#1068;"</span> <span style="color: #ffc1c1;">"|"</span> <span style="color: #ffc1c1;">"&#1055;&#1054;&#1044;&#1059;&#1052;&#1040;&#1051;"</span>)
+        (sequence <span style="color: #ffc1c1;">"&#1055;&#1054;&#1057;&#1052;&#1054;&#1058;&#1056;&#1045;&#1058;&#1068;"</span> <span style="color: #ffc1c1;">"|"</span> <span style="color: #ffc1c1;">"&#1055;&#1054;&#1057;&#1052;&#1054;&#1058;&#1056;&#1045;&#1051;"</span>)))
+
+(<span style="color: #00ffff;">setq</span> org-todo-keyword-faces
+      '((<span style="color: #ffc1c1;">"TODO"</span> . org-warning)
+        (<span style="color: #ffc1c1;">"&#1055;&#1054;&#1044;&#1059;&#1052;&#1040;&#1058;&#1068;"</span> . (<span style="color: #b0c4de;">:foreground</span> <span style="color: #ffc1c1;">"yellow"</span>
+                                   <span style="color: #b0c4de;">:weight</span> bold))
+        (<span style="color: #ffc1c1;">"&#1055;&#1054;&#1057;&#1052;&#1054;&#1058;&#1056;&#1045;&#1058;&#1068;"</span> . (<span style="color: #b0c4de;">:background</span> <span style="color: #ffc1c1;">"SteelBlue"</span>
+                                     <span style="color: #b0c4de;">:weight</span> bold))))
+
+<span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">Targets include this file and any file contributing to the agenda - up to 9 levels deep</span>
+(<span style="color: #00ffff;">setq</span> org-refile-targets (<span style="color: #00ffff;">quote</span> ((nil <span style="color: #b0c4de;">:maxlevel</span> . 9)
+                                 (org-agenda-files <span style="color: #b0c4de;">:maxlevel</span> . 9))))
+
+
+<span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">Use full outline paths for refile targets - we file directly with IDO</span>
+(<span style="color: #00ffff;">setq</span> org-refile-use-outline-path t)
+
+<span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">Targets complete directly with IDO</span>
+(<span style="color: #00ffff;">setq</span> org-outline-path-complete-in-steps nil)
+
+<span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">Allow refile to create parent tasks with confirmation</span>
+(<span style="color: #00ffff;">setq</span> org-refile-allow-creating-parent-nodes (<span style="color: #00ffff;">quote</span> confirm))
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">&#1054;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077; &#1082;&#1072;&#1088;&#1090;&#1080;&#1085;&#1086;&#1082; inline &#1074; org-mode</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">(setq org-startup-with-inline-images "inlineimages")</span>
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">&#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1072; &#1087;&#1086;&#1080;&#1089;&#1082;&#1072; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;</span>
+(<span style="color: #00ffff;">setq</span> indo-enable-flex-matching t)
+(<span style="color: #00ffff;">setq</span> ido-everywhere t)
+(ido-mode 1)
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">&#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1072; ibuffer</span>
+(<span style="color: #00ffff;">defalias</span> '<span style="color: #00fa9a; font-size: 110%; font-weight: bold;">list-buffers</span> 'ibuffer-other-window)
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">&#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1072; &#1087;&#1077;&#1088;&#1077;&#1082;&#1083;&#1102;&#1095;&#1077;&#1085;&#1080;&#1103; &#1084;&#1077;&#1078;&#1076;&#1091; &#1086;&#1082;&#1085;&#1072;&#1084;&#1080;</span>
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">ace-window</span>
+  <span style="color: #b0c4de;">:ensure</span> t
+  <span style="color: #b0c4de;">:init</span>
+  (<span style="color: #00ffff;">progn</span>
+    (global-set-key [remap other-window] 'ace-window)
+    (custom-set-faces
+     '(aw-leading-char-face
+       ((t (<span style="color: #b0c4de;">:inherit</span> ace-jump-face-foreground <span style="color: #b0c4de;">:height</span> 3.0)))))))
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">&#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1072; Python IDE</span>
+<span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">&#1040;&#1074;&#1090;&#1086;&#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1077; &#1074; Python</span>
+<span style="color: #fa8072;">;</span><span style="color: #ff7f24; font-style: italic;">(use-package jedi</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">:ensure t)</span>
+
+<span style="color: #fa8072;">;</span><span style="color: #ff7f24; font-style: italic;">(use-package elpy</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">:ensure t</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">:config</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">(use-package flycheck</span>
+<span style="color: #fa8072;">;    </span><span style="color: #ff7f24; font-style: italic;">:ensure t)</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">(when (require 'flycheck nil t)</span>
+<span style="color: #fa8072;">;    </span><span style="color: #ff7f24; font-style: italic;">(setq elpy-modules (delq 'elpy-module-flymake elpy-modules))</span>
+<span style="color: #fa8072;">;    </span><span style="color: #ff7f24; font-style: italic;">(add-hook 'elpy-mode-hook 'flycheck-mode))</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">(elpy-enable)</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">(setq elpy-rpc-backend "jedi"))</span>
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">(setq python-shell-interpreter "ipython"</span>
+<span style="color: #fa8072;">;;       </span><span style="color: #ff7f24; font-style: italic;">python-shell-interpreter-args "-i --simple-prompt"</span>
+<span style="color: #fa8072;">;;       </span><span style="color: #ff7f24; font-style: italic;">python-shell-completion-native-enable nil)</span>
+
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Jupyter notebook in org-mode</span>
+<span style="color: #fa8072;">;</span><span style="color: #ff7f24; font-style: italic;">(use-package ob-ipython</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">:ensure t</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">:config</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">(org-babel-do-load-languages</span>
+<span style="color: #fa8072;">;   </span><span style="color: #ff7f24; font-style: italic;">'org-babel-load-languages</span>
+<span style="color: #fa8072;">;   </span><span style="color: #ff7f24; font-style: italic;">'((emacs-lisp . t)</span>
+<span style="color: #fa8072;">;     </span><span style="color: #ff7f24; font-style: italic;">(ipython . t))))</span>
+
+<span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">Emacs IPython notebook</span>
+<span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">(use-package ein</span>
+<span style="color: #fa8072;">;  </span><span style="color: #ff7f24; font-style: italic;">:ensure t)</span>
+
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">nix-mode</span>
+  <span style="color: #b0c4de;">:ensure</span> t
+  <span style="color: #b0c4de;">:mode</span> ((<span style="color: #ffc1c1;">"\\.nix\\'"</span> . nix-mode)))
 
 (custom-set-variables
- <span style="color: #ffff00;">;; </span><span style="color: #ffff00;">custom-set-variables was added by Custom.</span>
- <span style="color: #ffff00;">;; </span><span style="color: #ffff00;">If you edit it by hand, you could mess it up, so be careful.</span>
- <span style="color: #ffff00;">;; </span><span style="color: #ffff00;">Your init file should contain only one such instance.</span>
- <span style="color: #ffff00;">;; </span><span style="color: #ffff00;">If there is more than one, they won't work right.</span>
- '(package-selected-packages (<span style="color: #00ffff; font-weight: bold;">quote</span> (htmlize try use-package))))
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">custom-set-variables was added by Custom.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If you edit it by hand, you could mess it up, so be careful.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Your init file should contain only one such instance.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If there is more than one, they won't work right.</span>
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   [<span style="color: #ffc1c1;">"black"</span> <span style="color: #ffc1c1;">"#d55e00"</span> <span style="color: #ffc1c1;">"#009e73"</span> <span style="color: #ffc1c1;">"#f8ec59"</span> <span style="color: #ffc1c1;">"#0072b2"</span> <span style="color: #ffc1c1;">"#cc79a7"</span> <span style="color: #ffc1c1;">"#56b4e9"</span> <span style="color: #ffc1c1;">"white"</span>])
+ '(custom-enabled-themes (<span style="color: #00ffff;">quote</span> (manoj-dark)))
+ '(org-agenda-files
+   (<span style="color: #00ffff;">quote</span>
+    (<span style="color: #ffc1c1;">"/home/lebedev/org/journal/2016_04_21.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_05_23.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_05_24.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_05_25.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_05_26.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_05_27.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_05_28.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_05_29.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_05_31.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_01.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_02.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_03.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_06.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_07.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_08.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_09.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_10.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_11.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_12.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_13.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_16.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_17.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_18.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_19.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_20.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_21.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_22.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_23.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_25.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_28.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_29.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_06_30.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_07_01.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_07_02.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_07_03.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_07_04.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_07_06.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_08_20.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_09_07.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_09_10.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2018_10_06.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2019_03_09.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2019_04_01.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/journal/2019_04_03.org"</span> <span style="color: #ffc1c1;">"/home/lebedev/org/ml/word_embeddings.org"</span> <span style="color: #ffc1c1;">"~/org/life.org"</span> <span style="color: #ffc1c1;">"~/org/notes.org"</span> <span style="color: #ffc1c1;">"~/org/turclubmai.org"</span> <span style="color: #ffc1c1;">"~/org/bookmarks.org"</span> <span style="color: #ffc1c1;">"~/org/hacks.org"</span> <span style="color: #ffc1c1;">"~/org/credits.org"</span> <span style="color: #ffc1c1;">"~/org/travels/alay_pamir_2018/preparation.org"</span> <span style="color: #ffc1c1;">"~/org/admin.org"</span> <span style="color: #ffc1c1;">"~/org/emacs.org"</span> <span style="color: #ffc1c1;">"~/org/nixos.org"</span> <span style="color: #ffc1c1;">"~/org/miet.org"</span> <span style="color: #ffc1c1;">"~/travels/2019_kolvitskie/kolvitskie.org"</span>)))
+ '(package-selected-packages
+   (<span style="color: #00ffff;">quote</span>
+    (cmake-mode racket-mode cider clojure-mode extempore-mode htmlize eldoc-mode flycheck-rust racer rust-mode paren-face rainbow-delimiters paredit company-coq proof-general haskell-mode org-board flycheck ace-window org-bullets which-key try use-package))))
 (custom-set-faces
- <span style="color: #ffff00;">;; </span><span style="color: #ffff00;">custom-set-faces was added by Custom.</span>
- <span style="color: #ffff00;">;; </span><span style="color: #ffff00;">If you edit it by hand, you could mess it up, so be careful.</span>
- <span style="color: #ffff00;">;; </span><span style="color: #ffff00;">Your init file should contain only one such instance.</span>
- <span style="color: #ffff00;">;; </span><span style="color: #ffff00;">If there is more than one, they won't work right.</span>
- )
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">custom-set-faces was added by Custom.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If you edit it by hand, you could mess it up, so be careful.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Your init file should contain only one such instance.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If there is more than one, they won't work right.</span>
+ '(aw-leading-char-face ((t (<span style="color: #b0c4de;">:inherit</span> ace-jump-face-foreground <span style="color: #b0c4de;">:height</span> 3.0)))))
+
+
+(put 'downcase-region 'disabled nil)
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgf088c01" class="outline-2">
-<h2 id="orgf088c01"><span class="section-number-2">2</span> <a href="https://orgmode.org/">org mode</a></h2>
+<div id="outline-container-org4cf78a7" class="outline-2">
+<h2 id="org4cf78a7"><span class="section-number-2">2</span> <a href="https://orgmode.org/">org mode</a>. Как организовать работу.</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+"Org mode is for keeping notes, maintaining TODO lists, planning
+projects, and authoring documents with a fast and effective
+plain-text system." (цитата из документации по org mode)
+</p>
+
 <p>
 Что почитать:
 </p>
@@ -341,12 +557,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org795c4a9" class="outline-2">
-<h2 id="org795c4a9"><span class="section-number-2">3</span> Dat protocol. Как обмениваться файлами без облаков.</h2>
+<div id="outline-container-org3f148b6" class="outline-2">
+<h2 id="org3f148b6"><span class="section-number-2">3</span> Dat protocol. Как обмениваться файлами без облаков.</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orge4194de" class="outline-3">
-<h3 id="orge4194de"><span class="section-number-3">3.1</span> Что это такое</h3>
+<div id="outline-container-org455b23b" class="outline-3">
+<h3 id="org455b23b"><span class="section-number-3">3.1</span> Что это такое</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 У вас много файликов на компе и надо пошарить директорию среди
@@ -355,30 +571,45 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgd7809e3" class="outline-3">
-<h3 id="orgd7809e3"><span class="section-number-3">3.2</span> Какие есть решения?</h3>
+<div id="outline-container-orgff5240b" class="outline-3">
+<h3 id="orgff5240b"><span class="section-number-3">3.2</span> Какие есть решения?</h3>
 <div class="outline-text-3" id="text-3-2">
 <ol class="org-ol">
 <li>ftp сервер и web сервер</li>
-<li>облачные хранилища</li>
-<li>torrent</li>
+<li>облачные хранилища <span class="underline">вот так нельзя!</span></li>
+<li>torrent - хороший инструмент, но в нем нет возможности
+синхронизовывать обновления директории</li>
 <li>dat протокол</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org52d1e8d" class="outline-3">
-<h3 id="org52d1e8d"><span class="section-number-3">3.3</span> Установка dat</h3>
+<div id="outline-container-org2ed53ad" class="outline-3">
+<h3 id="org2ed53ad"><span class="section-number-3">3.3</span> Установка dat через npm</h3>
 <div class="outline-text-3" id="text-3-3">
+<p>
+Так обычно делают javascript программисты
+</p>
 </div>
-<div id="outline-container-org4c5bbc0" class="outline-4">
-<h4 id="org4c5bbc0"><span class="section-number-4">3.3.1</span> <span class="done DONE">DONE</span> Нужен nodejs</h4>
+
+<div id="outline-container-org0cb432b" class="outline-4">
+<h4 id="org0cb432b"><span class="section-number-4">3.3.1</span> <span class="done DONE">DONE</span> Нужен nodejs</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+У обладателей NixOS он уже стоит
+</p>
 </div>
-<div id="outline-container-org88d15cd" class="outline-4">
-<h4 id="org88d15cd"><span class="section-number-4">3.3.2</span> <span class="done DONE">DONE</span> нужен npm - менеджер пакетов</h4>
 </div>
-<div id="outline-container-org8421118" class="outline-4">
-<h4 id="org8421118"><span class="section-number-4">3.3.3</span> <span class="done DONE">DONE</span> Настройка npm</h4>
+<div id="outline-container-org5f1d91f" class="outline-4">
+<h4 id="org5f1d91f"><span class="section-number-4">3.3.2</span> <span class="done DONE">DONE</span> нужен npm - менеджер пакетов</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+nodejs тянет за собой npm.
+</p>
+</div>
+</div>
+<div id="outline-container-org4a940fc" class="outline-4">
+<h4 id="org4a940fc"><span class="section-number-4">3.3.3</span> <span class="done DONE">DONE</span> Настройка npm</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 Надо сделать так, чтобы npm ставил программы в определенную
@@ -386,17 +617,17 @@ for the JavaScript code in this tag.
 </p>
 
 <p>
-Для этого надо отредактировать файлик: ~/.npmrc
+Для этого надо отредактировать файлик: <code>~/.npmrc</code>
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">prefix = ${<span style="color: #ffff00;">HOME</span>}/.npm-packages
+<pre class="src src-sh">prefix = ${<span style="color: #7fffd4;">HOME</span>}/.npm-packages
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org334e142" class="outline-4">
-<h4 id="org334e142"><span class="section-number-4">3.3.4</span> Ставим dat командой</h4>
+<div id="outline-container-org231edb3" class="outline-4">
+<h4 id="org231edb3"><span class="section-number-4">3.3.4</span> Ставим dat командой</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <div class="org-src-container">
 <pre class="src src-sh">npm install -g dat
@@ -406,38 +637,53 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org5160fc4" class="outline-3">
-<h3 id="org5160fc4"><span class="section-number-3">3.4</span> Используем dat</h3>
+<div id="outline-container-orgb13563e" class="outline-3">
+<h3 id="orgb13563e"><span class="section-number-3">3.4</span> Используем dat</h3>
 <div class="outline-text-3" id="text-3-4">
+<p>
+Сценарий: один желает делиться контентом некой директории <code>foo</code>,
+остальные желают иметь свежую версию этого контента.
+</p>
 </div>
-<div id="outline-container-orgc03267c" class="outline-4">
-<h4 id="orgc03267c"><span class="section-number-4">3.4.1</span> Шарим содержимое директории с помощью dat</h4>
+<div id="outline-container-org9e58de6" class="outline-4">
+<h4 id="org9e58de6"><span class="section-number-4">3.4.1</span> Желающий поделиться</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
-Из этой директории запускаем команду
+Идет в директорию <code>foo</code> и запускает там <code>dat</code>
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">~/.npm-packages/bin/dat share
+<pre class="src src-sh"><span style="color: #b0c4de;">cd</span> foo
+~/.npm-packages/bin/dat share 
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org4ef441f" class="outline-4">
-<h4 id="org4ef441f"><span class="section-number-4">3.4.2</span> Клонируем директорию по dat ссылке</h4>
+<p>
+После запуска <code>dat</code> сгенерирует ссылку, по которой будет доступен
+<code>foo</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb29089f" class="outline-4">
+<h4 id="orgb29089f"><span class="section-number-4">3.4.2</span> Желающий получить <code>foo</code> на своей машине выполняет</h4>
 <div class="outline-text-4" id="text-3-4-2">
 <div class="org-src-container">
-<pre class="src src-sh">~/.npm-packages/bin/dat clone &lt;dat &#1089;&#1089;&#1099;&#1083;&#1082;&#1072;&gt;
+<pre class="src src-sh">~/.npm-packages/bin/dat clone &lt;dat &#1089;&#1089;&#1099;&#1083;&#1082;&#1072;&gt; foo
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-orga2c9220" class="outline-4">
-<h4 id="orga2c9220"><span class="section-number-4">3.4.3</span> Включение непрерывной синхронизации</h4>
-<div class="outline-text-4" id="text-3-4-3">
+<p>
+Возможно <code>dat clone</code> не с первого раза найдет информацию по dat
+ссылке.
+</p>
+
+<p>
+После удачного клонирования в директорию <code>foo</code> вы можете выбрать
+роль раздающего этот контент.Для этого надо перейти в <code>foo</code> и
+запустить там <code>dat sync</code>:
+</p>
+
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #0000ff; font-weight: bold;">cd</span> &lt;dat &#1089;&#1089;&#1099;&#1083;&#1082;&#1072;&gt;
+<pre class="src src-sh"><span style="color: #b0c4de;">cd</span> foo
 ~/.npm-packages/bin/dat sync
 </pre>
 </div>
@@ -446,8 +692,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgf9ee056" class="outline-2">
-<h2 id="orgf9ee056"><span class="section-number-2">4</span> Экспортируем org файл в html</h2>
+<div id="outline-container-org04eb257" class="outline-2">
+<h2 id="org04eb257"><span class="section-number-2">4</span> Экспортируем org файл в html</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Для экспорта надо набрать в emacs сочетание клавиш: <code>C-c-e h h</code>.
@@ -455,12 +701,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgc61b11e" class="outline-2">
-<h2 id="orgc61b11e"><span class="section-number-2">5</span> Git</h2>
+<div id="outline-container-orgf40e754" class="outline-2">
+<h2 id="orgf40e754"><span class="section-number-2">5</span> Git</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org9619cc9" class="outline-3">
-<h3 id="org9619cc9"><span class="section-number-3">5.1</span> Что почитать</h3>
+<div id="outline-container-org012773b" class="outline-3">
+<h3 id="org012773b"><span class="section-number-3">5.1</span> Что почитать</h3>
 <div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
 <li><a href="https://git-scm.com/book/ru/v2">git book</a></li>
@@ -469,20 +715,20 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgad2ef0f" class="outline-2">
-<h2 id="orgad2ef0f"><span class="section-number-2">6</span> Подвал</h2>
+<div id="outline-container-org9a67987" class="outline-2">
+<h2 id="org9a67987"><span class="section-number-2">6</span> Подвал</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org670f3bf" class="outline-3">
-<h3 id="org670f3bf"><span class="section-number-3">6.1</span> Был вопрос про <code>BEGIN_SRC</code></h3>
+<div id="outline-container-org1d0ea45" class="outline-3">
+<h3 id="org1d0ea45"><span class="section-number-3">6.1</span> Был вопрос про <code>BEGIN_SRC</code></h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #00ffff; font-weight: bold;">def</span> <span style="color: #0000ff; font-weight: bold;">f</span>(x):
-    <span style="color: #00ffff; font-weight: bold;">return</span> x*x
+<pre class="src src-python"><span style="color: #00ffff;">def</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">f</span>(x):
+    <span style="color: #00ffff;">return</span> x*x
 
-<span style="color: #00ffff; font-weight: bold;">for</span> i <span style="color: #00ffff; font-weight: bold;">in</span> <span style="color: #0000ff; font-weight: bold;">range</span>(100):
-    <span style="color: #ffff00;">v</span> = f(i)
-    <span style="color: #00ffff; font-weight: bold;">print</span>(v)
+<span style="color: #00ffff;">for</span> i <span style="color: #00ffff;">in</span> <span style="color: #b0c4de;">range</span>(100):
+    <span style="color: #7fffd4;">v</span> = f(i)
+    <span style="color: #00ffff;">print</span>(v)
 </pre>
 </div>
 
@@ -492,28 +738,28 @@ for the JavaScript code in this tag.
 </div>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #00ff00;">int</span> <span style="color: #0000ff; font-weight: bold;">main</span> () {
-  <span style="color: #00ff00;">char</span> *<span style="color: #ffff00;">str</span> = <span style="color: #00ff00;">"Hello world"</span>;
-  printf(<span style="color: #00ff00;">"%s"</span>, str);
-  <span style="color: #00ffff; font-weight: bold;">return</span> 0;
+<pre class="src src-c"><span style="color: #63b8ff;">int</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">main</span> () {
+  <span style="color: #63b8ff;">char</span> *<span style="color: #7fffd4;">str</span> = <span style="color: #ffc1c1;">"Hello world"</span>;
+  printf(<span style="color: #ffc1c1;">"%s"</span>, str);
+  <span style="color: #00ffff;">return</span> 0;
 }
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgddd312c" class="outline-3">
-<h3 id="orgddd312c"><span class="section-number-3">6.2</span> <span class="todo TODO">TODO</span> Надо подключить таблицу стилей.</h3>
+<div id="outline-container-org7e912e8" class="outline-3">
+<h3 id="org7e912e8"><span class="section-number-3">6.2</span> <span class="todo TODO">TODO</span> Надо подключить таблицу стилей.</h3>
 </div>
-<div id="outline-container-org9713743" class="outline-3">
-<h3 id="org9713743"><span class="section-number-3">6.3</span> <span class="todo TODO">TODO</span> работа в tmux</h3>
+<div id="outline-container-org8504636" class="outline-3">
+<h3 id="org8504636"><span class="section-number-3">6.3</span> <span class="todo TODO">TODO</span> работа в tmux</h3>
 <div class="outline-text-3" id="text-6-3">
 <ol class="org-ol">
 <li><a href="https://habr.com/ru/post/126996/">Краткая шпаргалка по tmux (менеджеру терминалов)</a> - статья на Хабре</li>
 </ol>
 </div>
 
-<div id="outline-container-org941de1d" class="outline-4">
-<h4 id="org941de1d"><span class="section-number-4">6.3.1</span> Часто используемые сочетания клавиш</h4>
+<div id="outline-container-orged45d9c" class="outline-4">
+<h4 id="orged45d9c"><span class="section-number-4">6.3.1</span> Часто используемые сочетания клавиш</h4>
 <div class="outline-text-4" id="text-6-3-1">
 <dl class="org-dl">
 <dt>C-b c</dt><dd>создать окно</dd>
@@ -528,7 +774,7 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-11-06 Wed 20:50</p>
+<p class="date">Created: 2019-11-06 Wed 22:56</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
