@@ -1,0 +1,99 @@
+#+TITLE: 6.11.2019
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
+#+HTML_HEAD: <style>div.figure img {max-height:300px;max-width:900px;}</style>
+#+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
+
+* Конфиг emacs
+  Конфигурация emacs лежит в файле: =~/.emacs=.
+
+  #+INCLUDE: ~/.emacs src elisp
+
+* [[https://orgmode.org/][org mode]]
+  Что почитать:
+  1. [[https://habr.com/ru/post/105300/][Введение в org-mode emacs на habr]]
+
+* Dat protocol. Как обмениваться файлами без облаков. 
+** Что это такое
+   У вас много файликов на компе и надо пошарить директорию среди
+   друзей без третьей стороны. 
+
+** Какие есть решения?
+   1. ftp сервер и web сервер
+   2. облачные хранилища
+   3. torrent
+   4. dat протокол
+
+** Установка dat
+*** DONE Нужен nodejs
+*** DONE нужен npm - менеджер пакетов
+*** DONE Настройка npm
+    Надо сделать так, чтобы npm ставил программы в определенную
+    директорию.
+
+    Для этого надо отредактировать файлик: ~/.npmrc
+    #+BEGIN_SRC sh
+    prefix = ${HOME}/.npm-packages
+    #+END_SRC
+
+*** Ставим dat командой
+    #+BEGIN_SRC sh
+      npm install -g dat
+    #+END_SRC
+
+** Используем dat
+*** Шарим содержимое директории с помощью dat
+    Из этой директории запускаем команду
+    #+BEGIN_SRC sh
+      ~/.npm-packages/bin/dat share
+    #+END_SRC
+
+*** Клонируем директорию по dat ссылке
+    #+BEGIN_SRC sh
+      ~/.npm-packages/bin/dat clone <dat ссылка>
+    #+END_SRC
+    
+*** Включение непрерывной синхронизации
+    #+BEGIN_SRC sh
+      cd <dat ссылка>
+      ~/.npm-packages/bin/dat sync
+    #+END_SRC
+
+* Экспортируем org файл в html
+   Для экспорта надо набрать в emacs сочетание клавиш: =C-c-e h h=.
+
+* Git
+** Что почитать
+   1. [[https://git-scm.com/book/ru/v2][git book]]
+
+* Подвал
+** Был вопрос про =BEGIN_SRC=
+  #+BEGIN_SRC python
+    def f(x):
+	return x*x
+
+    for i in range(100):
+	v = f(i)
+	print(v)
+  #+END_SRC
+
+  #+BEGIN_SRC elisp
+    (+ 2 3 4)
+  #+END_SRC
+
+  #+BEGIN_SRC c
+    int main () {
+      char *str = "Hello world";
+      printf("%s", str);
+      return 0;
+    }
+  #+END_SRC
+** TODO Надо подключить таблицу стилей.
+** TODO работа в tmux
+   1. [[https://habr.com/ru/post/126996/][Краткая шпаргалка по tmux (менеджеру терминалов)]] - статья на Хабре
+
+*** Часто используемые сочетания клавиш
+    - C-b c :: создать окно
+    - C-b n :: переключиться на следующее окно
+    - C-b d :: отсоединиться от tmux
+    - =tmux attach= :: присоединиться к сессии tmux
+    - C-b s :: выбор сессии tmux
