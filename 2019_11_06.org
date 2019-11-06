@@ -3,15 +3,23 @@
 #+HTML_HEAD: <style>div.figure img {max-height:300px;max-width:900px;}</style>
 #+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
 
-* Конфиг emacs
-  Конфигурация emacs лежит в файле: =~/.emacs=.
+* Минимальная конфигурация emacs
+  Конфигурация emacs лежит в файле: =~/.emacs=. Открыть файл можно с
+  помощью любого текстового редактора.
 
+  Ниже приведен пример того, как должен выглядеть минимальный конфиг
+  для этого семинара:
+  
   #+INCLUDE: ~/.emacs src elisp
 
-* [[https://orgmode.org/][org mode]]
+* [[https://orgmode.org/][org mode]]. Как организовать работу. 
+  "Org mode is for keeping notes, maintaining TODO lists, planning
+  projects, and authoring documents with a fast and effective
+  plain-text system." (цитата из документации по org mode)
+
   Что почитать:
   1. [[https://habr.com/ru/post/105300/][Введение в org-mode emacs на habr]]
-
+     
 * Dat protocol. Как обмениваться файлами без облаков. 
 ** Что это такое
    У вас много файликов на компе и надо пошарить директорию среди
