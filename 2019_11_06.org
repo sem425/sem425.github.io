@@ -13,19 +13,21 @@
   #+INCLUDE: ~/.emacs src elisp
 
 * [[https://orgmode.org/][org mode]]. Как организовать работу. 
-  "Org mode is for keeping notes, maintaining TODO lists, planning
+  #+BEGIN_QUOTE
+  Org mode is for keeping notes, maintaining TODO lists, planning
   projects, and authoring documents with a fast and effective
-  plain-text system." (цитата из документации по org mode)
+  plain-text system.
+  #+END_QUOTE
 
-  Что почитать:
-  1. [[https://habr.com/ru/post/105300/][Введение в org-mode emacs на habr]]
+** Что почитать:
+   1. [[https://habr.com/ru/post/105300/][Введение в org-mode emacs на habr]]
      
 * [[https://dat.foundation/][Dat protocol]]. Как обмениваться файлами без облаков. 
 ** Что это такое
    У вас много файликов на компе и надо пошарить директорию среди
    друзей без третьей стороны. 
-
-** Какие есть решения?
+   
+** Какие есть решения
    1. ftp сервер и web сервер
    2. облачные хранилища - _вот так нельзя!_
    3. torrent - хороший инструмент, но в нем нет возможности
@@ -33,17 +35,17 @@
    4. dat протокол
 
 ** Установка dat через npm
-   Так обычно делают javascript программисты
+   Так обычно делают javascript программисты.
 
-*** DONE Нужен nodejs
-    У обладателей NixOS он уже стоит
-*** DONE нужен npm - менеджер пакетов
+*** Нужен nodejs
+    У обладателей NixOS он уже стоит.
+*** Нужен npm - менеджер пакетов
     nodejs тянет за собой npm.
-*** DONE Настройка npm
+*** Настройка npm
     Надо сделать так, чтобы npm ставил программы в определенную
     директорию.
 
-    Для этого надо отредактировать файлик: =~/.npmrc=
+    Для этого надо отредактировать файлик =~/.npmrc=:
     #+BEGIN_SRC sh
     prefix = ${HOME}/.npm-packages
     #+END_SRC
@@ -57,7 +59,7 @@
    Сценарий: один желает делиться контентом некой директории =foo=,
    остальные желают иметь свежую версию этого контента.
 *** Желающий поделиться
-    Идет в директорию =foo= и запускает там =dat=
+    Идет в директорию =foo= и запускает там =dat=:
     #+BEGIN_SRC sh
       cd foo
       ~/.npm-packages/bin/dat share 
@@ -65,7 +67,8 @@
 
     После запуска =dat= сгенерирует ссылку, по которой будет доступен
     =foo=.
-*** Желающий получить =foo= на своей машине выполняет
+*** Желающий получить
+    Желающий получить =foo= на своей машине выполняет:
     #+BEGIN_SRC sh
       ~/.npm-packages/bin/dat clone <dat ссылка> foo
     #+END_SRC
@@ -74,9 +77,8 @@
     ссылке.
 
     После удачного клонирования в директорию =foo= вы можете выбрать
-    роль раздающего этот контент.Для этого надо перейти в =foo= и
+    роль раздающего этот контент. Для этого надо перейти в =foo= и
     запустить там =dat sync=:
-
     #+BEGIN_SRC sh
       cd foo
       ~/.npm-packages/bin/dat sync
@@ -86,9 +88,22 @@
    Для экспорта надо набрать в emacs сочетание клавиш: =C-c-e h h=.
 
 * Git
-** Что почитать
+** Что почитать:
    1. [[https://git-scm.com/book/ru/v2][git book]]
 
+* Работа в tmux
+** Что почитать:
+   1. [[https://habr.com/ru/post/126996/][Краткая шпаргалка по tmux (менеджеру терминалов)]] - статья на Хабре
+   2. [[https://leimao.github.io/blog/Tmux-Tutorial/][Tmux Tutorial]]
+   3. [[https://danielmiessler.com/study/tmux/][Tactical tmux: The 10 Most Important Commands]]
+
+** Часто используемые сочетания клавиш
+   - C-b c :: создать окно
+   - C-b n :: переключиться на следующее окно
+   - C-b d :: отсоединиться от tmux
+   - =tmux attach= :: присоединиться к сессии tmux
+   - C-b s :: выбор сессии tmux
+      
 * Подвал
 ** Был вопрос про =BEGIN_SRC=
   #+BEGIN_SRC python
@@ -111,13 +126,4 @@
       return 0;
     }
   #+END_SRC
-** TODO Надо подключить таблицу стилей.
-** TODO работа в tmux
-   1. [[https://habr.com/ru/post/126996/][Краткая шпаргалка по tmux (менеджеру терминалов)]] - статья на Хабре
-
-*** Часто используемые сочетания клавиш
-    - C-b c :: создать окно
-    - C-b n :: переключиться на следующее окно
-    - C-b d :: отсоединиться от tmux
-    - =tmux attach= :: присоединиться к сессии tmux
-    - C-b s :: выбор сессии tmux
+** Надо подключить таблицу стилей
