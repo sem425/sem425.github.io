@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-11-06 Wed 23:37 -->
+<!-- 2019-11-07 Thu 00:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>6.11.2019</title>
+<title>Tmux, Emacs, org-mode, dat, git</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -231,62 +231,54 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">6.11.2019</h1>
+<h1 class="title">Tmux, Emacs, org-mode, dat, git</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga5f0740">1. Минимальная конфигурация emacs</a></li>
-<li><a href="#orgf1433f7">2. org mode. Как организовать работу.</a>
-<ul>
-<li><a href="#orgb35ef48">2.1. Что почитать:</a></li>
-</ul>
-</li>
-<li><a href="#org4f559d5">3. Dat protocol. Как обмениваться файлами без облаков.</a>
-<ul>
-<li><a href="#org650c527">3.1. Что это такое</a></li>
-<li><a href="#org7294c13">3.2. Какие есть решения</a></li>
-<li><a href="#orge26d8b0">3.3. Установка dat через npm</a>
-<ul>
-<li><a href="#org659faf5">3.3.1. Нужен nodejs</a></li>
-<li><a href="#org7e35f2c">3.3.2. Нужен npm - менеджер пакетов</a></li>
-<li><a href="#orgf88f35e">3.3.3. Настройка npm</a></li>
-<li><a href="#org0bdf758">3.3.4. Ставим dat командой</a></li>
-</ul>
-</li>
-<li><a href="#orgc1528de">3.4. Используем dat</a>
-<ul>
-<li><a href="#org92c03e2">3.4.1. Желающий поделиться</a></li>
-<li><a href="#org49b59c2">3.4.2. Желающий получить</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orge067b89">4. Экспортируем org файл в html</a></li>
-<li><a href="#org08927bc">5. Git</a>
-<ul>
-<li><a href="#org183f785">5.1. Что почитать:</a></li>
-</ul>
-</li>
-<li><a href="#orgc7b092a">6. Работа в tmux</a>
-<ul>
-<li><a href="#orgb201b2d">6.1. Что почитать:</a></li>
-<li><a href="#orga534f07">6.2. Часто используемые сочетания клавиш</a></li>
-</ul>
-</li>
-<li><a href="#org48de7a5">7. Подвал</a>
-<ul>
-<li><a href="#orgd1eb6d6">7.1. Был вопрос про <code>BEGIN_SRC</code></a></li>
-<li><a href="#orge5969e5">7.2. Надо подключить таблицу стилей</a></li>
-</ul>
-</li>
+<li><a href="#org47fe392">1. Работа в tmux</a></li>
+<li><a href="#org45be241">2. Минимальная конфигурация emacs</a></li>
+<li><a href="#org94b0288">3. Org mode. Как организовать работу.</a></li>
+<li><a href="#org34028cb">4. Dat protocol. Как обмениваться файлами без облаков.</a></li>
+<li><a href="#org0ec8d88">5. Экспортируем org файл в html</a></li>
+<li><a href="#org0d83d19">6. Git</a></li>
+<li><a href="#org39cc65f">7. Подвал</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga5f0740" class="outline-2">
-<h2 id="orga5f0740"><span class="section-number-2">1</span> Минимальная конфигурация emacs</h2>
+<div id="outline-container-org47fe392" class="outline-2">
+<h2 id="org47fe392"><span class="section-number-2">1</span> Работа в tmux</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org4acad40" class="outline-3">
+<h3 id="org4acad40"><span class="section-number-3">1.1</span> Что почитать:</h3>
+<div class="outline-text-3" id="text-1-1">
+<ol class="org-ol">
+<li><a href="https://habr.com/ru/post/126996/">Краткая шпаргалка по tmux (менеджеру терминалов)</a> - статья на Хабре</li>
+<li><a href="https://leimao.github.io/blog/Tmux-Tutorial/">Tmux Tutorial</a></li>
+<li><a href="https://danielmiessler.com/study/tmux/">Tactical tmux: The 10 Most Important Commands</a></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgc2bbb05" class="outline-3">
+<h3 id="orgc2bbb05"><span class="section-number-3">1.2</span> Часто используемые сочетания клавиш</h3>
+<div class="outline-text-3" id="text-1-2">
+<dl class="org-dl">
+<dt>C-b c</dt><dd>создать окно</dd>
+<dt>C-b n</dt><dd>переключиться на следующее окно</dd>
+<dt>C-b d</dt><dd>отсоединиться от tmux</dd>
+<dt><code>tmux attach</code></dt><dd>присоединиться к сессии tmux</dd>
+<dt>C-b s</dt><dd>выбор сессии tmux</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org45be241" class="outline-2">
+<h2 id="org45be241"><span class="section-number-2">2</span> Минимальная конфигурация emacs</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 Конфигурация emacs лежит в файле: <code>~/.emacs</code>. Открыть файл можно с
 помощью любого текстового редактора.
@@ -339,9 +331,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgf1433f7" class="outline-2">
-<h2 id="orgf1433f7"><span class="section-number-2">2</span> <a href="https://orgmode.org/">org mode</a>. Как организовать работу.</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org94b0288" class="outline-2">
+<h2 id="org94b0288"><span class="section-number-2">3</span> <a href="https://orgmode.org/">Org mode</a>. Как организовать работу.</h2>
+<div class="outline-text-2" id="text-3">
 <blockquote>
 <p>
 Org mode is for keeping notes, maintaining TODO lists, planning
@@ -351,23 +343,25 @@ plain-text system.
 </blockquote>
 </div>
 
-<div id="outline-container-orgb35ef48" class="outline-3">
-<h3 id="orgb35ef48"><span class="section-number-3">2.1</span> Что почитать:</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org872001e" class="outline-3">
+<h3 id="org872001e"><span class="section-number-3">3.1</span> Что почитать:</h3>
+<div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
+<li><a href="https://orgmode.org/org.html">The Org Manual</a></li>
 <li><a href="https://habr.com/ru/post/105300/">Введение в org-mode emacs на habr</a></li>
+<li><a href="http://doc.norang.ca/org-mode.html">Org Mode - Organize Your Life In Plain Text!</a></li>
 </ol>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4f559d5" class="outline-2">
-<h2 id="org4f559d5"><span class="section-number-2">3</span> <a href="https://dat.foundation/">Dat protocol</a>. Как обмениваться файлами без облаков.</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org34028cb" class="outline-2">
+<h2 id="org34028cb"><span class="section-number-2">4</span> <a href="https://dat.foundation/">Dat protocol</a>. Как обмениваться файлами без облаков.</h2>
+<div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org650c527" class="outline-3">
-<h3 id="org650c527"><span class="section-number-3">3.1</span> Что это такое</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-orgcd5c5ba" class="outline-3">
+<h3 id="orgcd5c5ba"><span class="section-number-3">4.1</span> Что это такое</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 У вас много файликов на компе и надо пошарить директорию среди
 друзей без третьей стороны. 
@@ -375,9 +369,9 @@ plain-text system.
 </div>
 </div>
 
-<div id="outline-container-org7294c13" class="outline-3">
-<h3 id="org7294c13"><span class="section-number-3">3.2</span> Какие есть решения</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org4ab489f" class="outline-3">
+<h3 id="org4ab489f"><span class="section-number-3">4.2</span> Какие есть решения</h3>
+<div class="outline-text-3" id="text-4-2">
 <ol class="org-ol">
 <li>ftp сервер и web сервер</li>
 <li>облачные хранилища - <span class="underline">вот так нельзя!</span></li>
@@ -388,33 +382,33 @@ plain-text system.
 </div>
 </div>
 
-<div id="outline-container-orge26d8b0" class="outline-3">
-<h3 id="orge26d8b0"><span class="section-number-3">3.3</span> Установка dat через npm</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-org174bc24" class="outline-3">
+<h3 id="org174bc24"><span class="section-number-3">4.3</span> Установка dat через npm</h3>
+<div class="outline-text-3" id="text-4-3">
 <p>
 Так обычно делают javascript программисты.
 </p>
 </div>
 
-<div id="outline-container-org659faf5" class="outline-4">
-<h4 id="org659faf5"><span class="section-number-4">3.3.1</span> Нужен nodejs</h4>
-<div class="outline-text-4" id="text-3-3-1">
+<div id="outline-container-orgc3760c6" class="outline-4">
+<h4 id="orgc3760c6"><span class="section-number-4">4.3.1</span> Нужен nodejs</h4>
+<div class="outline-text-4" id="text-4-3-1">
 <p>
 У обладателей NixOS он уже стоит.
 </p>
 </div>
 </div>
-<div id="outline-container-org7e35f2c" class="outline-4">
-<h4 id="org7e35f2c"><span class="section-number-4">3.3.2</span> Нужен npm - менеджер пакетов</h4>
-<div class="outline-text-4" id="text-3-3-2">
+<div id="outline-container-org8ff274a" class="outline-4">
+<h4 id="org8ff274a"><span class="section-number-4">4.3.2</span> Нужен npm - менеджер пакетов</h4>
+<div class="outline-text-4" id="text-4-3-2">
 <p>
 nodejs тянет за собой npm.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf88f35e" class="outline-4">
-<h4 id="orgf88f35e"><span class="section-number-4">3.3.3</span> Настройка npm</h4>
-<div class="outline-text-4" id="text-3-3-3">
+<div id="outline-container-orgd7338ed" class="outline-4">
+<h4 id="orgd7338ed"><span class="section-number-4">4.3.3</span> Настройка npm</h4>
+<div class="outline-text-4" id="text-4-3-3">
 <p>
 Надо сделать так, чтобы npm ставил программы в определенную
 директорию.
@@ -430,9 +424,9 @@ nodejs тянет за собой npm.
 </div>
 </div>
 
-<div id="outline-container-org0bdf758" class="outline-4">
-<h4 id="org0bdf758"><span class="section-number-4">3.3.4</span> Ставим dat командой</h4>
-<div class="outline-text-4" id="text-3-3-4">
+<div id="outline-container-org3da1055" class="outline-4">
+<h4 id="org3da1055"><span class="section-number-4">4.3.4</span> Ставим dat командой</h4>
+<div class="outline-text-4" id="text-4-3-4">
 <div class="org-src-container">
 <pre class="src src-sh">npm install -g dat
 </pre>
@@ -441,17 +435,17 @@ nodejs тянет за собой npm.
 </div>
 </div>
 
-<div id="outline-container-orgc1528de" class="outline-3">
-<h3 id="orgc1528de"><span class="section-number-3">3.4</span> Используем dat</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-orgdd7bf0a" class="outline-3">
+<h3 id="orgdd7bf0a"><span class="section-number-3">4.4</span> Используем dat</h3>
+<div class="outline-text-3" id="text-4-4">
 <p>
 Сценарий: один желает делиться контентом некой директории <code>foo</code>,
 остальные желают иметь свежую версию этого контента.
 </p>
 </div>
-<div id="outline-container-org92c03e2" class="outline-4">
-<h4 id="org92c03e2"><span class="section-number-4">3.4.1</span> Желающий поделиться</h4>
-<div class="outline-text-4" id="text-3-4-1">
+<div id="outline-container-org6583fce" class="outline-4">
+<h4 id="org6583fce"><span class="section-number-4">4.4.1</span> Желающий поделиться</h4>
+<div class="outline-text-4" id="text-4-4-1">
 <p>
 Идет в директорию <code>foo</code> и запускает там <code>dat</code>:
 </p>
@@ -467,9 +461,9 @@ nodejs тянет за собой npm.
 </p>
 </div>
 </div>
-<div id="outline-container-org49b59c2" class="outline-4">
-<h4 id="org49b59c2"><span class="section-number-4">3.4.2</span> Желающий получить</h4>
-<div class="outline-text-4" id="text-3-4-2">
+<div id="outline-container-org46fb804" class="outline-4">
+<h4 id="org46fb804"><span class="section-number-4">4.4.2</span> Желающий получить</h4>
+<div class="outline-text-4" id="text-4-4-2">
 <p>
 Желающий получить <code>foo</code> на своей машине выполняет:
 </p>
@@ -498,22 +492,23 @@ nodejs тянет за собой npm.
 </div>
 </div>
 
-<div id="outline-container-orge067b89" class="outline-2">
-<h2 id="orge067b89"><span class="section-number-2">4</span> Экспортируем org файл в html</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org0ec8d88" class="outline-2">
+<h2 id="org0ec8d88"><span class="section-number-2">5</span> Экспортируем org файл в html</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 Для экспорта надо набрать в emacs сочетание клавиш: <code>C-c-e h h</code>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org08927bc" class="outline-2">
-<h2 id="org08927bc"><span class="section-number-2">5</span> Git</h2>
-<div class="outline-text-2" id="text-5">
+
+<div id="outline-container-org0d83d19" class="outline-2">
+<h2 id="org0d83d19"><span class="section-number-2">6</span> Git</h2>
+<div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org183f785" class="outline-3">
-<h3 id="org183f785"><span class="section-number-3">5.1</span> Что почитать:</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-org682f720" class="outline-3">
+<h3 id="org682f720"><span class="section-number-3">6.1</span> Что почитать:</h3>
+<div class="outline-text-3" id="text-6-1">
 <ol class="org-ol">
 <li><a href="https://git-scm.com/book/ru/v2">git book</a></li>
 </ol>
@@ -521,41 +516,12 @@ nodejs тянет за собой npm.
 </div>
 </div>
 
-<div id="outline-container-orgc7b092a" class="outline-2">
-<h2 id="orgc7b092a"><span class="section-number-2">6</span> Работа в tmux</h2>
-<div class="outline-text-2" id="text-6">
-</div>
-<div id="outline-container-orgb201b2d" class="outline-3">
-<h3 id="orgb201b2d"><span class="section-number-3">6.1</span> Что почитать:</h3>
-<div class="outline-text-3" id="text-6-1">
-<ol class="org-ol">
-<li><a href="https://habr.com/ru/post/126996/">Краткая шпаргалка по tmux (менеджеру терминалов)</a> - статья на Хабре</li>
-<li><a href="https://leimao.github.io/blog/Tmux-Tutorial/">Tmux Tutorial</a></li>
-<li><a href="https://danielmiessler.com/study/tmux/">Tactical tmux: The 10 Most Important Commands</a></li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-orga534f07" class="outline-3">
-<h3 id="orga534f07"><span class="section-number-3">6.2</span> Часто используемые сочетания клавиш</h3>
-<div class="outline-text-3" id="text-6-2">
-<dl class="org-dl">
-<dt>C-b c</dt><dd>создать окно</dd>
-<dt>C-b n</dt><dd>переключиться на следующее окно</dd>
-<dt>C-b d</dt><dd>отсоединиться от tmux</dd>
-<dt><code>tmux attach</code></dt><dd>присоединиться к сессии tmux</dd>
-<dt>C-b s</dt><dd>выбор сессии tmux</dd>
-</dl>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org48de7a5" class="outline-2">
-<h2 id="org48de7a5"><span class="section-number-2">7</span> Подвал</h2>
+<div id="outline-container-org39cc65f" class="outline-2">
+<h2 id="org39cc65f"><span class="section-number-2">7</span> Подвал</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgd1eb6d6" class="outline-3">
-<h3 id="orgd1eb6d6"><span class="section-number-3">7.1</span> Был вопрос про <code>BEGIN_SRC</code></h3>
+<div id="outline-container-org637a1b5" class="outline-3">
+<h3 id="org637a1b5"><span class="section-number-3">7.1</span> Был вопрос про <code>BEGIN_SRC</code></h3>
 <div class="outline-text-3" id="text-7-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #00ffff;">def</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">f</span>(x):
@@ -582,13 +548,13 @@ nodejs тянет за собой npm.
 </div>
 </div>
 </div>
-<div id="outline-container-orge5969e5" class="outline-3">
-<h3 id="orge5969e5"><span class="section-number-3">7.2</span> Надо подключить таблицу стилей</h3>
+<div id="outline-container-orgcc48b64" class="outline-3">
+<h3 id="orgcc48b64"><span class="section-number-3">7.2</span> Надо подключить таблицу стилей</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-11-06 Wed 23:37</p>
+<p class="date">Created: 2019-11-07 Thu 00:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

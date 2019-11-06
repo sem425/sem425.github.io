@@ -1,7 +1,21 @@
-#+TITLE: 6.11.2019
+#+TITLE: Tmux, Emacs, org-mode, dat, git
+#+OPTIONS: toc:1
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
 #+HTML_HEAD: <style>div.figure img {max-height:300px;max-width:900px;}</style>
 #+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
+
+* Работа в tmux
+** Что почитать:
+   1. [[https://habr.com/ru/post/126996/][Краткая шпаргалка по tmux (менеджеру терминалов)]] - статья на Хабре
+   2. [[https://leimao.github.io/blog/Tmux-Tutorial/][Tmux Tutorial]]
+   3. [[https://danielmiessler.com/study/tmux/][Tactical tmux: The 10 Most Important Commands]]
+
+** Часто используемые сочетания клавиш
+   - C-b c :: создать окно
+   - C-b n :: переключиться на следующее окно
+   - C-b d :: отсоединиться от tmux
+   - =tmux attach= :: присоединиться к сессии tmux
+   - C-b s :: выбор сессии tmux
 
 * Минимальная конфигурация emacs
   Конфигурация emacs лежит в файле: =~/.emacs=. Открыть файл можно с
@@ -12,7 +26,7 @@
   
   #+INCLUDE: .emacs src elisp
 
-* [[https://orgmode.org/][org mode]]. Как организовать работу. 
+* [[https://orgmode.org/][Org mode]]. Как организовать работу. 
   #+BEGIN_QUOTE
   Org mode is for keeping notes, maintaining TODO lists, planning
   projects, and authoring documents with a fast and effective
@@ -20,7 +34,9 @@
   #+END_QUOTE
 
 ** Что почитать:
-   1. [[https://habr.com/ru/post/105300/][Введение в org-mode emacs на habr]]
+   1. [[https://orgmode.org/org.html][The Org Manual]]
+   2. [[https://habr.com/ru/post/105300/][Введение в org-mode emacs на habr]]
+   3. [[http://doc.norang.ca/org-mode.html][Org Mode - Organize Your Life In Plain Text!]]
      
 * [[https://dat.foundation/][Dat protocol]]. Как обмениваться файлами без облаков. 
 ** Что это такое
@@ -87,22 +103,10 @@
 * Экспортируем org файл в html
    Для экспорта надо набрать в emacs сочетание клавиш: =C-c-e h h=.
 
+
 * Git
 ** Что почитать:
    1. [[https://git-scm.com/book/ru/v2][git book]]
-
-* Работа в tmux
-** Что почитать:
-   1. [[https://habr.com/ru/post/126996/][Краткая шпаргалка по tmux (менеджеру терминалов)]] - статья на Хабре
-   2. [[https://leimao.github.io/blog/Tmux-Tutorial/][Tmux Tutorial]]
-   3. [[https://danielmiessler.com/study/tmux/][Tactical tmux: The 10 Most Important Commands]]
-
-** Часто используемые сочетания клавиш
-   - C-b c :: создать окно
-   - C-b n :: переключиться на следующее окно
-   - C-b d :: отсоединиться от tmux
-   - =tmux attach= :: присоединиться к сессии tmux
-   - C-b s :: выбор сессии tmux
       
 * Подвал
 ** Был вопрос про =BEGIN_SRC=

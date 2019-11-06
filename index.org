@@ -1,6 +1,19 @@
 #+TITLE: 425
+#+OPTIONS: toc:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
 #+HTML_HEAD: <style>div.figure img {max-height:300px;max-width:900px;}</style>
 #+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
 
-* [[file:./2019_11_06.org][Семинар 2019/11/06]]
+* Семинары
+** [[file:./2019_11_06.org][Семинар 2019/11/06]]
+
+* Литература
+  - Командная строка Linux. Полное руководство. Уильям Шоттс.
+    ISBN: 978-5-496-02303-0
+  - Туториал внутри самого emacs (есть перевод на русский)
+  - [[http://ergoemacs.org/emacs/emacs.html][Practical Emacs Tutorial]]
+  - [[https://git-scm.com/book/ru/v2][Git book. Scott Chacon & Ben Straub]]
+
+* Расписание
+  Семинары проходят по средам и четвергам в 3-ем корпусе в 425ой
+  комнате. Начало семинара в 18:30.
