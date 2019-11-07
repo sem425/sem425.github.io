@@ -13,6 +13,7 @@
   - Туториал внутри самого emacs (есть перевод на русский)
   - [[http://ergoemacs.org/emacs/emacs.html][Practical Emacs Tutorial]]
   - [[https://git-scm.com/book/ru/v2][Git book. Scott Chacon & Ben Straub]]
+  - [[https://thebookofshaders.com/][The Book of Shaders]] by Patricio Gonzalez Vivo and Jen Lowe
 
 * Расписание
   Семинары проходят по средам и четвергам в 3-ем корпусе в 425ой
