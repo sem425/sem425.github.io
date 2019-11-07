@@ -10,7 +10,7 @@
 * Литература
   - Командная строка Linux. Полное руководство. Уильям Шоттс.
     ISBN: 978-5-496-02303-0
-  - Туториал внутри самого emacs (есть перевод на русский)
+  - Туториал внутри самого emacs =C-u-h t= (есть перевод на русский)
   - [[http://ergoemacs.org/emacs/emacs.html][Practical Emacs Tutorial]]
   - [[https://git-scm.com/book/ru/v2][Git book. Scott Chacon & Ben Straub]]
   - [[https://thebookofshaders.com/][The Book of Shaders]] by Patricio Gonzalez Vivo and Jen Lowe
