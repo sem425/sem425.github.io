@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-11-07 Thu 09:12 -->
+<!-- 2019-11-08 Fri 15:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>425</title>
@@ -233,22 +233,126 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">425</h1>
 
-<div id="outline-container-orge2d9c39" class="outline-2">
-<h2 id="orge2d9c39"><span class="section-number-2">1</span> Семинары</h2>
+<div id="outline-container-org187f8aa" class="outline-2">
+<h2 id="org187f8aa"><span class="section-number-2">1</span> Семинары</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org5363432" class="outline-3">
-<h3 id="org5363432"><span class="section-number-3">1.1</span> <a href="./2019_11_06.html">Семинар 2019/11/06</a></h3>
+<div id="outline-container-orgfebc133" class="outline-3">
+<h3 id="orgfebc133"><span class="section-number-3">1.1</span> <a href="./2019_11_06.html">Семинар 2019/11/06</a></h3>
 </div>
 </div>
 
-<div id="outline-container-org94a120f" class="outline-2">
-<h2 id="org94a120f"><span class="section-number-2">2</span> Литература</h2>
+
+<div id="outline-container-orgfca5ece" class="outline-2">
+<h2 id="orgfca5ece"><span class="section-number-2">2</span> Инструменты</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+На семинарах мы сидим в <a href="https://nixos.org/">NixO</a> на <a href="https://github.com/sem425/nixconfig">этом конфиге</a>. Участники семинара
+часть работы выполняют на своих машинах, а часть на удаленном
+сервере(виртуалке) через <a href="https://en.wikipedia.org/wiki/Secure_Shell">ssh</a> в мультиплексере <a href="https://github.com/tmux/tmux/wiki">tmux</a>. Тексты этого
+семинара вместе с кодами стараемся писать в <a href="https://www.gnu.org/software/emacs/">emacs</a>. Коллаборативную
+разработку на больших отрезках времени ведем в связке <a href="https://git-scm.com/">git</a> +
+<a href="https://github.com/">github.com</a>. Коллаборативную разработку на малых отрезках времени
+ведем в <code>tmux</code> на сервере с синхронизацией текущего содержимого
+файликов по протоколу <a href="https://dat.foundation/">dat</a> на локальные машины. Графические скетчи мы
+пишем на <code>js</code>, используя <a href="https://p5js.org/examples/simulate-flocking.html">p5js</a>. <a href="https://codesandbox.io/s/modern-bird-368wk">Тут</a> пример нашего скетча на
+<a href="https://codesandbox.io">codesandbox.io</a>. <i>Очень хотим вставлять скетчи прямо в этот текст.</i>
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org0cd5901"></a><span class="todo TODO">TODO</span> Привести тут список семинарских инструкций по каждому инструменту<br />
+<div class="outline-text-5" id="text-org0cd5901">
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org5b307da" class="outline-2">
+<h2 id="org5b307da"><span class="section-number-2">3</span> Планы на ближайшие месяцы</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orged0f8a9" class="outline-3">
+<h3 id="orged0f8a9"><span class="section-number-3">3.1</span> Инструменты</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> <a href="https://git-scm.com/">git</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://en.wikipedia.org/wiki/Secure_Shell">ssh</a> + <a href="https://en.wikipedia.org/wiki/SOCKS">SOCKS</a> туннели</li>
+<li class="off"><code>[&#xa0;]</code> emacs + org mode</li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://en.wikipedia.org/wiki/Rsync">rsync</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://syncthing.net/">syncthing</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://openvpn.net/">openvpn</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://dat.foundation/">dat</a> + браузер <a href="https://beakerbrowser.com/">Beaker</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org055a499" class="outline-3">
+<h3 id="org055a499"><span class="section-number-3">3.2</span> Системное программирование</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> stack and heap в программах на C</li>
+<li class="off"><code>[&#xa0;]</code> отладчик gdb</li>
+<li class="off"><code>[&#xa0;]</code> указатели и адресная арифиметика</li>
+<li class="off"><code>[&#xa0;]</code> основы ассемблера + понимание того, как реализована концепция
+функции в языке C в железе</li>
+<li class="off"><code>[&#xa0;]</code> Работа с динамической памятью + указатели + адресная арифметика</li>
+<li class="off"><code>[&#xa0;]</code> Системные
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> работа с файлами</li>
+<li class="off"><code>[&#xa0;]</code> межпроцессное взаимодействие, сокеты, tcp, udp</li>
+<li class="off"><code>[&#xa0;]</code> многопоточность</li>
+</ul></li>
+<li class="off"><code>[&#xa0;]</code> Работа с памятью в языках со встроенным сборщиком мусора</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbbb44f6" class="outline-3">
+<h3 id="orgbbb44f6"><span class="section-number-3">3.3</span> Art programming</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> Основы графики на <code>js</code></li>
+<li class="off"><code>[&#xa0;]</code> Разбор художественных произведений + быстрое чтение и
+понимание кода</li>
+<li class="off"><code>[&#xa0;]</code> Работа со звуком. Live coding</li>
+<li class="off"><code>[&#xa0;]</code> интеграция математических понятий в визуальный контекст</li>
+</ul>
+</div>
+
+<div id="outline-container-org978828c" class="outline-4">
+<h4 id="org978828c"><span class="section-number-4">3.3.1</span> Предлагаю кодить разные математические концепции.</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+И учится думать о них. Например
+сделать анимации градиентного спуска, решить задачу n-body,
+симмулировать дым и огонь, визуализировать фазовое пространство
+нескольких дифференциальных уравнений. Основная идея - это
+применение математических концепций в вашем творчестве.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6fc78ea" class="outline-3">
+<h3 id="org6fc78ea"><span class="section-number-3">3.4</span> <span class="todo TODO">TODO</span> <a id="orgd9da521"></a> Алгоритмы</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+А где вы будете применять алгоритмы? Сперва надо набить шишки в
+творческом поиске, получить медленные, но интересные программы, а
+потом применить алгоритмы!
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8e388d3" class="outline-2">
+<h2 id="org8e388d3"><span class="section-number-2">4</span> Литература</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Командная строка Linux. Полное руководство. Уильям Шоттс.
 ISBN: 978-5-496-02303-0</li>
-<li>Туториал внутри самого emacs (есть перевод на русский)</li>
+<li>Туториал внутри самого emacs <code>C-u-h t</code> (есть перевод на русский)</li>
 <li><a href="http://ergoemacs.org/emacs/emacs.html">Practical Emacs Tutorial</a></li>
 <li><a href="https://git-scm.com/book/ru/v2">Git book. Scott Chacon &amp; Ben Straub</a></li>
 <li><a href="https://thebookofshaders.com/">The Book of Shaders</a> by Patricio Gonzalez Vivo and Jen Lowe</li>
@@ -256,9 +360,9 @@ ISBN: 978-5-496-02303-0</li>
 </div>
 </div>
 
-<div id="outline-container-orgb458e88" class="outline-2">
-<h2 id="orgb458e88"><span class="section-number-2">3</span> Расписание</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org2fe5600" class="outline-2">
+<h2 id="org2fe5600"><span class="section-number-2">5</span> Расписание</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 Семинары проходят по средам и четвергам в 3-ем корпусе в 425ой
 комнате. Начало семинара в 18:30.
@@ -267,7 +371,7 @@ ISBN: 978-5-496-02303-0</li>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-11-07 Thu 09:12</p>
+<p class="date">Created: 2019-11-08 Fri 15:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
