@@ -25,7 +25,7 @@
      :UNNUMBERED: notoc
      :END:
 
-* Планы на ближайшие месяцы
+* Планы
 ** Инструменты
    - [ ] [[https://git-scm.com/][git]]
    - [ ] [[https://en.wikipedia.org/wiki/Secure_Shell][ssh]] + [[https://en.wikipedia.org/wiki/SOCKS][SOCKS]] туннели
