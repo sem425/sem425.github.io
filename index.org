@@ -14,6 +14,7 @@
   - [[http://ergoemacs.org/emacs/emacs.html][Practical Emacs Tutorial]]
   - [[https://git-scm.com/book/ru/v2][Git book. Scott Chacon & Ben Straub]]
   - [[https://thebookofshaders.com/][The Book of Shaders]] by Patricio Gonzalez Vivo and Jen Lowe
+  - [[https://nixos.org/~eelco/pubs/phd-thesis.pdf][The Purely Functional SoftwareDeployment Model]] by Eelco Dolstra
 
 * Расписание
   Семинары проходят по средам и четвергам в 3-ем корпусе в 425ой
