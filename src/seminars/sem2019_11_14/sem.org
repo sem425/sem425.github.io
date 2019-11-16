@@ -1,0 +1,179 @@
+#+TITLE: 2019/11/14
+
+* Синхронизация данных
+  <2019-11-16 Sat> 
+  На семинаре выяснили, что dat-protocol по некоторым причинам не
+  работает у некоторых участников семинара. Как-нибудь потом я выясню
+  причину отказов у dat. А для успешного продолжения семинара было
+  принято решение перейти на [[https://en.wikipedia.org/wiki/Rsync][rsync]]. Для этого потребовалось собрать у
+  участников публичные ключи и сохранить их не сервере. И тут возникли
+  определенные проблемы. Например у кого-то не работал copy-paste, а
+  писать 256-байтный ключ руками в текстовом редакторе на сервере было
+  совсем неразумно. После всех мучений была выработана следующая
+  схема:
+
+  Каждый участник запускает на своей машине =ssh-keygen=, который по
+  умолчанию генерирует в директории =~/.ssh= приватный =id_rsa= и
+  публичный =id_rsa.pub= ключи. 
+  
+  Каждый участник пересылает на сервер свой публичный ключ, используя
+  пароль в качестве механизма авторизации:
+  #+BEGIN_SRC sh
+     scp ~/.ssh/id_rsa.pub mem@192.168.8.104:~/sem2019_11_14/<ваше_имя>.pub
+  #+END_SRC
+
+  Все публичные ключи собираются в одном файле на сервере вот таким образом:
+  #+BEGIN_SRC sh
+     for a in *.pub;
+     do
+	 cat $a >> ~/.ssh/authorized_keys;
+     done
+  #+END_SRC
+
+  После этой процедуры участники могут ходить на сервер по ssh без
+  пароля, но по ключу. Это то, что нужно для успешной автоматической
+  авторизации =rsync=.
+  
+  Теперь осталось синхронизовать содержимое директории на сервере
+  с директорией на машине участника семинара:
+  #+BEGIN_SRC sh
+     watch -n 2 rsync --delete -avhze ssh mem@192.168.8.104:~/sem2019_11_14/ ~/sem2019_11_14
+  #+END_SRC
+
+* Первые скетчи на p5js
+  Первый скетч мы решили сделать по [[https://p5js.org/get-started/][этому туториалу]]. Правда в этом
+  туториале оказалась битая ссылка на =p5.min.js=. Сделав необходимую
+  правку ссылки мы получили два файлика:
+
+** [[./sketch0/index.html][=index.html=]]
+   #+BEGIN_SRC html :tangle sketch0/index.html
+     <html>
+       <head>
+	 <script src="https://github.com/processing/p5.js/releases/download/0.10.2/p5.min.js"></script>
+	 <script src="sketch.js"></script>
+       </head>
+       <body>
+       </body>
+     </html>
+   #+END_SRC
+
+** [[./sketch0/sketch.js][=sketch.js=]]
+   #+BEGIN_SRC js :tangle sketch0/sketch.js
+     function setup() {
+       createCanvas(640, 480);
+     }
+
+     function draw() {
+       if (mouseIsPressed) {
+	 fill(0);
+       } else {
+	 fill(255);
+       }
+       ellipse(mouseX, mouseY, 80, 80);
+     }
+   #+END_SRC
+
+* Лог семинара
+** Делаем скетч на p5js
+*** С помощью npm через проект
+*** На коленке создать html файл и js файл
+
+** <2019-11-14 Thu 19:21> Настройка dat
+*** В файлике =~/.npmrc= пишем:
+   #+BEGIN_SRC sh
+     prefix = ${HOME}
+   #+END_SRC
+
+*** Запускаем установку:
+    #+BEGIN_SRC sh
+      npm install -g dat
+    #+END_SRC
+
+** Использование dat
+   Договоримся об обозначениях:
+   - share_dir :: директория, которую хотим пошарить
+   - dat_link :: dat ссылка
+   - dest_dir :: директория, куда клонируем контент
+
+*** Как раздать контент:
+    #+BEGIN_SRC sh
+      cd share_dir
+      dat share
+    #+END_SRC
+
+*** Как склонировать контент:
+    #+BEGIN_SRC sh
+      dat clone dat_link dest_dir
+    #+END_SRC
+
+*** Как запустить постоянную синхронизаци?
+    #+BEGIN_SRC sh
+      cd dest_dir
+      dat sync
+    #+END_SRC
+
+** <2019-11-14 Thu 19:53> Пишем скетч. 1-ый вариант
+   Создадим директорию =./sektch1=
+   #+BEGIN_SRC sh
+   mkdir sketch1
+   #+END_SRC
+
+   В директории =./sketch1= надо создать два файлика
+*** =index.html=
+    #+BEGIN_SRC html
+      <html>
+	<head>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+	  <script src="sketch.js"></script>
+	</head>
+	<body>
+	</body>
+      </html>
+
+    #+END_SRC
+
+*** =sketch.js=
+    #+BEGIN_SRC js
+   
+    #+END_SRC
+
+** <2019-11-14 Thu 20:13> А dat то не работает!!!! Используем rsync
+   На локальной машине создадим директорию =sem2019_11_14=:
+   #+BEGIN_SRC sh
+     mkdir sem2019_11_14
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+     rsync --delete -avhze ssh mem@192.168.8.104:~/sem2019_11_14/ ~/sem2019_11_14
+   #+END_SRC
+  
+** <2019-11-14 Thu 20:33> Генерация ключей
+   Запустите ssh-keygen
+   #+BEGIN_SRC sh
+     ssh-keygen
+   #+END_SRC
+
+   Ключики по умолчанию будут сохранены в директорию =~/.ssh=. Может, у
+   кого-то там уже есть ключи. В таком случае не надо делать новые.
+
+   Публичный ключ =id_rsa.pub= можете давать кому угодно, в том числе и
+   мне.
+
+** Собираем публичные ключи
+   #+BEGIN_SRC sh
+     scp ~/.ssh/id_rsa.pub mem@192.168.8.104:~/sem2019_11_14/<ваше_имя>.pub
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+     for a in *.pub; do cat $a >> ~/.ssh/authorized_keys; done
+   #+END_SRC
+
+** Теперь можно делать rsync без пароля <2019-11-14 Thu 20:54>
+** Запускаем rsync каждые 2 секунды
+   #+BEGIN_SRC sh
+     watch -n 2 rsync --delete -avhze ssh mem@192.168.8.104:~/sem2019_11_14/ ~/sem2019_11_14
+   #+END_SRC
+
+** <2019-11-14 Thu 20:59> Ура!!! Синхонизация есть!
+
+** https://p5js.org/reference/
