@@ -5,7 +5,8 @@
 #+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
 
 * Семинары
-** [[file:./2019_11_06.org][2019/11/06: tmux, emacs, org-mode, dat, git]]
+** <2019-11-06 Wed> [[file:./2019_11_06.org][tmux, emacs, org-mode, dat, git]]
+** <2019-11-07 Thu> [[file:src/seminars/2019_11_07.org][=$PATH= и окружение]]
 
 * Чем мы пользуемся на семинарах
   На семинарах мы сидим в [[https://nixos.org/][NixOS]] на [[https://github.com/sem425/nixconfig][этом конфиге]]. Участники семинара

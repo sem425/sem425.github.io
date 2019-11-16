@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>tmux, emacs, org-mode, dat, git</title>
-<!-- 2019-11-10 Sun 23:26 -->
+<!-- 2019-11-16 Sat 23:35 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -206,41 +206,41 @@ for the JavaScript code in this tag.
 
 <div class="org-src-container">
 
-<pre class="src src-elisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">Added by Package.el.  This must come before configurations of</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">installed packages.  Don't delete this line.  If you don't want it,</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">just comment it out by adding a semicolon to the start of the line.</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">You may delete these explanatory comments.</span>
+<pre class="src src-elisp"><span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Added by Package.el.  This must come before configurations of</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">installed packages.  Don't delete this line.  If you don't want it,</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">just comment it out by adding a semicolon to the start of the line.</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">You may delete these explanatory comments.</span>
 
 (package-initialize)
 
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">(setq inhibit-startup-message t)</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">(tool-bar-mode -1)</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">(setq inhibit-startup-message t)</span>
+<span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">(tool-bar-mode -1)</span>
 
-(<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">package</span>)
-(<span style="color: #a020f0;">setq</span> package-enable-at-startup nil)
-(add-to-list 'package-archives '(<span style="color: #8b2252;">"melpa"</span> . <span style="color: #8b2252;">"http://melpa.org/packages/"</span>))
+(<span style="color: #00ffff;">require</span> '<span style="color: #8470ff; font-weight: bold;">package</span>)
+(<span style="color: #00ffff;">setq</span> package-enable-at-startup nil)
+(add-to-list 'package-archives '(<span style="color: #ffc1c1;">"melpa"</span> . <span style="color: #ffc1c1;">"http://melpa.org/packages/"</span>))
 
-(<span style="color: #a020f0;">unless</span> (package-installed-p 'use-package)
+(<span style="color: #00ffff;">unless</span> (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-(<span style="color: #a020f0;">use-package</span> <span style="color: #008b8b;">try</span>
-  <span style="color: #483d8b;">:ensure</span> t)
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">try</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
 
-(<span style="color: #a020f0;">use-package</span> <span style="color: #008b8b;">htmlize</span>
-  <span style="color: #483d8b;">:ensure</span> t)
+(<span style="color: #00ffff;">use-package</span> <span style="color: #8470ff; font-weight: bold;">htmlize</span>
+  <span style="color: #b0c4de;">:ensure</span> t)
 
 (custom-set-variables
- <span style="color: #b22222;">;; </span><span style="color: #b22222;">custom-set-variables was added by Custom.</span>
- <span style="color: #b22222;">;; </span><span style="color: #b22222;">If you edit it by hand, you could mess it up, so be careful.</span>
- <span style="color: #b22222;">;; </span><span style="color: #b22222;">Your init file should contain only one such instance.</span>
- <span style="color: #b22222;">;; </span><span style="color: #b22222;">If there is more than one, they won't work right.</span>
- '(package-selected-packages (<span style="color: #a020f0;">quote</span> (htmlize try use-package))))
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">custom-set-variables was added by Custom.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If you edit it by hand, you could mess it up, so be careful.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Your init file should contain only one such instance.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If there is more than one, they won't work right.</span>
+ '(package-selected-packages (<span style="color: #00ffff;">quote</span> (htmlize try use-package))))
 (custom-set-faces
- <span style="color: #b22222;">;; </span><span style="color: #b22222;">custom-set-faces was added by Custom.</span>
- <span style="color: #b22222;">;; </span><span style="color: #b22222;">If you edit it by hand, you could mess it up, so be careful.</span>
- <span style="color: #b22222;">;; </span><span style="color: #b22222;">Your init file should contain only one such instance.</span>
- <span style="color: #b22222;">;; </span><span style="color: #b22222;">If there is more than one, they won't work right.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">custom-set-faces was added by Custom.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If you edit it by hand, you could mess it up, so be careful.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Your init file should contain only one such instance.</span>
+ <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">If there is more than one, they won't work right.</span>
  )
 </pre>
 </div>
@@ -341,7 +341,7 @@ nodejs тянет за собой npm.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">prefix = ${<span style="color: #a0522d;">HOME</span>}/.npm-packages
+<pre class="src src-sh">prefix = ${<span style="color: #7fffd4;">HOME</span>}/.npm-packages
 </pre>
 </div>
 </div>
@@ -375,7 +375,7 @@ nodejs тянет за собой npm.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #483d8b;">cd</span> foo
+<pre class="src src-sh"><span style="color: #b0c4de;">cd</span> foo
 ~/.npm-packages/bin/dat share
 </pre>
 </div>
@@ -410,7 +410,7 @@ nodejs тянет за собой npm.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #483d8b;">cd</span> foo
+<pre class="src src-sh"><span style="color: #b0c4de;">cd</span> foo
 ~/.npm-packages/bin/dat sync
 </pre>
 </div>
@@ -450,12 +450,12 @@ nodejs тянет за собой npm.
 <div class="outline-text-3" id="text-7-1">
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #a020f0;">def</span> <span style="color: #0000ff;">f</span>(x):
-    <span style="color: #a020f0;">return</span> x*x
+<pre class="src src-python"><span style="color: #00ffff;">def</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">f</span>(x):
+    <span style="color: #00ffff;">return</span> x*x
 
-<span style="color: #a020f0;">for</span> i <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(100):
-    <span style="color: #a0522d;">v</span> = f(i)
-    <span style="color: #a020f0;">print</span>(v)
+<span style="color: #00ffff;">for</span> i <span style="color: #00ffff;">in</span> <span style="color: #b0c4de;">range</span>(100):
+    <span style="color: #7fffd4;">v</span> = f(i)
+    <span style="color: #00ffff;">print</span>(v)
 </pre>
 </div>
 
@@ -467,10 +467,10 @@ nodejs тянет за собой npm.
 
 <div class="org-src-container">
 
-<pre class="src src-c"><span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span> () {
-  <span style="color: #228b22;">char</span> *<span style="color: #a0522d;">str</span> = <span style="color: #8b2252;">"Hello world"</span>;
-  printf(<span style="color: #8b2252;">"%s"</span>, str);
-  <span style="color: #a020f0;">return</span> 0;
+<pre class="src src-c"><span style="color: #63b8ff;">int</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">main</span> () {
+  <span style="color: #63b8ff;">char</span> *<span style="color: #7fffd4;">str</span> = <span style="color: #ffc1c1;">"Hello world"</span>;
+  printf(<span style="color: #ffc1c1;">"%s"</span>, str);
+  <span style="color: #00ffff;">return</span> 0;
 }
 </pre>
 </div>
@@ -482,7 +482,7 @@ nodejs тянет за собой npm.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-11-10 Sun 23:26</p>
+<p class="date">Created: 2019-11-16 Sat 23:35</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
