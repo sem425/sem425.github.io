@@ -1,0 +1,273 @@
+#+TITLE: 2019/11/14
+#+OPTIONS: toc:1
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
+#+HTML_HEAD: <style>div.figure img {max-height:300px;max-width:900px;}</style>
+#+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
+
+* Синхронизация данных
+  <2019-11-16 Sat> 
+  На семинаре выяснили, что dat-protocol по некоторым причинам не
+  работает у некоторых участников семинара. Как-нибудь потом я выясню
+  причину отказов у dat. А для успешного продолжения семинара было
+  принято решение перейти на [[https://en.wikipedia.org/wiki/Rsync][rsync]]. Для этого потребовалось собрать у
+  участников публичные ключи и сохранить их не сервере. И тут возникли
+  определенные проблемы. Например у кого-то не работал copy-paste, а
+  писать 256-байтный ключ руками в текстовом редакторе на сервере было
+  совсем неразумно. После всех мучений была выработана следующая
+  схема:
+
+  Каждый участник запускает на своей машине =ssh-keygen=, который по
+  умолчанию генерирует в директории =~/.ssh= приватный =id_rsa= и
+  публичный =id_rsa.pub= ключи. 
+  
+  Каждый участник пересылает на сервер свой публичный ключ, используя
+  пароль в качестве механизма авторизации:
+  #+BEGIN_SRC sh
+     scp ~/.ssh/id_rsa.pub mem@192.168.8.104:~/sem2019_11_14/<ваше_имя>.pub
+  #+END_SRC
+
+  Все публичные ключи собираются в одном файле на сервере вот таким образом:
+  #+BEGIN_SRC sh
+     for a in *.pub;
+     do
+	 cat $a >> ~/.ssh/authorized_keys;
+     done
+  #+END_SRC
+
+  После этой процедуры участники могут ходить на сервер по ssh без
+  пароля, но по ключу. Это то, что нужно для успешной автоматической
+  авторизации =rsync=.
+  
+  Теперь осталось синхронизовать содержимое директории на сервере
+  с директорией на машине участника семинара:
+  #+BEGIN_SRC sh
+     watch -n 2 rsync --delete -avhze ssh mem@192.168.8.104:~/sem2019_11_14/ ~/sem2019_11_14
+  #+END_SRC
+
+* Первые скетчи на p5js
+  Первый скетч мы решили сделать по [[https://p5js.org/get-started/][этому туториалу]]. Этот скетч
+  состоит из двух файлов: =index.html= и =sketch.js=, расположенных в
+  директории =sketch0=.
+
+** [[./sketch0/index.html][index.html]]
+   #+BEGIN_SRC html :tangle sketch0/index.html
+     <html>
+       <head>
+	 <script src="https://github.com/processing/p5.js/releases/download/0.10.2/p5.min.js"></script>
+	 <script src="sketch.js"></script>
+       </head>
+       <body>
+       </body>
+     </html>
+   #+END_SRC
+
+** [[./sketch0/sketch.js][sketch.js]]
+   #+BEGIN_SRC js :tangle sketch0/sketch.js
+     function setup() {
+       createCanvas(640, 480);
+     }
+
+     function draw() {
+       if (mouseIsPressed) {
+	 fill(0);
+       } else {
+	 fill(255);
+       }
+       ellipse(mouseX, mouseY, 80, 80);
+     }
+   #+END_SRC
+
+** Структура скетча
+   Логика скетча лежит в =sketch.js= и состоит из двух функций
+*** =setup()=
+    Вызывается в =5p.js= только один раз и предназначена для
+    инициализации сцены. Так функцией =createCanvas= инициализируется
+    холст размером 640x480 пикселей, куда затем можно рисовать
+    функциями: =ellipse=, =line= и другими.
+
+*** =draw()=
+    Скетчи в =p5.js= являются интерактивными анимациями,
+    развивающимеся во времени покадрово. Функция =draw= рисует кадр
+    для =p5.js=, и зовется =p5.js= так часто, что возникает эффект
+    непрерывного движения.
+
+* Рисуем [[https://en.wikipedia.org/wiki/Cycloid][циклоиду]]
+  #+CAPTION: Прилипшая резинка на колесе движется по циклоиде
+  #+NAME:   fig:SED-HR4049
+  [[https://upload.wikimedia.org/wikipedia/commons/6/69/Cycloid_f.gif]]
+  
+  #+BEGIN_SRC js :tangle cycloid_sketch/sketch.js
+    function setup() {
+	createCanvas(1200, 480);
+    }
+
+    let T = 0.0; // время
+    let R = 20;  // радиус колеса
+    let V = 1;  // скорость центра колеса
+    let perimeter = 2 * Math.PI * R;
+
+    function draw() {
+	let dist = T * V;             // пройденное расстояние
+	let C = dist / perimeter;     // число оборотов
+	let angle = 2 * Math.PI * C;  // угол поворота колеса в радианах
+	let x_center = dist;          // X координата центра колеса
+	let y_center = R;             // Y координата центра колеса
+	let x = x_center + R * Math.cos(angle);   // x координата прилипшей резинки
+	let y = y_center + R * Math.sin(angle);   // y координата прилипшей резинки
+
+	ellipse(x, y + 50, 2, 2);
+	T++;
+	if (T > 1200) {
+	    background(255);
+	    T = 0;
+	}
+    }
+  #+END_SRC
+
+  Этот код порождает вот [[./cycloid_sketch/index.html][такой]] скетч:
+  #+HTML: <iframe style="width: 100%;" src="cycloid_sketch/index.html"></iframe>
+
+* Рисуем [[https://en.wikipedia.org/wiki/Cardioid][кардиоиду]]
+  #+BEGIN_SRC js :tangle cardioid_sketch/sketch.js
+    function setup() {
+	createCanvas(300, 200);
+    }
+
+    let T = 0.0;
+    let R_stat = 30;
+    let R_mov  = 30;
+    let speed = 1;
+
+    let xs = [];
+    let ys = [];
+
+    let N = 0;
+
+    function draw() {
+	let S = speed * T;         // пройденный линейный путь
+
+	let A = S / R_stat;  // угол между горизонталью и направленем на центр движужегося колеса
+	let x_center = (R_mov + R_stat) * Math.cos(A); // центр подвижного колеса
+	let y_center = (R_mov + R_stat) * Math.sin(A); // центр подвижного колеса
+
+	let B = A + S / R_mov;  // угол проворта движущегося колеса. Почему надо складывать углы???
+
+	let X = x_center + R_mov * Math.cos(B);
+	let Y = y_center + R_mov * Math.sin(B);
+
+	ellipse(100 + X, 80 + Y, 2, 2);
+	T += 1;
+    }
+  #+END_SRC
+
+  #+HTML: <iframe style="width:300px;height:200px;scrolling:no;" src="cardioid_sketch/index.html"></iframe>
+
+* Еще скетчи:
+  1. [[./sketch1/index.html][sk1]]
+  2. [[./sketch2/index.html][sk2]]
+  3. [[./sketch3/index.html][sk3]]
+
+* Лог семинара
+** Делаем скетч на p5js
+*** С помощью npm через проект
+*** На коленке создать html файл и js файл
+
+** <2019-11-14 Thu 19:21> Настройка dat
+*** В файлике =~/.npmrc= пишем:
+   #+BEGIN_SRC sh
+     prefix = ${HOME}
+   #+END_SRC
+
+*** Запускаем установку:
+    #+BEGIN_SRC sh
+      npm install -g dat
+    #+END_SRC
+
+** Использование dat
+   Договоримся об обозначениях:
+   - share_dir :: директория, которую хотим пошарить
+   - dat_link :: dat ссылка
+   - dest_dir :: директория, куда клонируем контент
+
+*** Как раздать контент:
+    #+BEGIN_SRC sh
+      cd share_dir
+      dat share
+    #+END_SRC
+
+*** Как склонировать контент:
+    #+BEGIN_SRC sh
+      dat clone dat_link dest_dir
+    #+END_SRC
+
+*** Как запустить постоянную синхронизаци?
+    #+BEGIN_SRC sh
+      cd dest_dir
+      dat sync
+    #+END_SRC
+
+** <2019-11-14 Thu 19:53> Пишем скетч. 1-ый вариант
+   Создадим директорию =./sektch1=
+   #+BEGIN_SRC sh
+   mkdir sketch1
+   #+END_SRC
+
+   В директории =./sketch1= надо создать два файлика
+*** =index.html=
+    #+BEGIN_SRC html
+      <html>
+	<head>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+	  <script src="sketch.js"></script>
+	</head>
+	<body>
+	</body>
+      </html>
+
+    #+END_SRC
+
+*** =sketch.js=
+    #+BEGIN_SRC js
+   
+    #+END_SRC
+
+** <2019-11-14 Thu 20:13> А dat то не работает!!!! Используем rsync
+   На локальной машине создадим директорию =sem2019_11_14=:
+   #+BEGIN_SRC sh
+     mkdir sem2019_11_14
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+     rsync --delete -avhze ssh mem@192.168.8.104:~/sem2019_11_14/ ~/sem2019_11_14
+   #+END_SRC
+  
+** <2019-11-14 Thu 20:33> Генерация ключей
+   Запустите ssh-keygen
+   #+BEGIN_SRC sh
+     ssh-keygen
+   #+END_SRC
+
+   Ключики по умолчанию будут сохранены в директорию =~/.ssh=. Может, у
+   кого-то там уже есть ключи. В таком случае не надо делать новые.
+
+   Публичный ключ =id_rsa.pub= можете давать кому угодно, в том числе и
+   мне.
+
+** Собираем публичные ключи
+   #+BEGIN_SRC sh
+     scp ~/.ssh/id_rsa.pub mem@192.168.8.104:~/sem2019_11_14/<ваше_имя>.pub
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+     for a in *.pub; do cat $a >> ~/.ssh/authorized_keys; done
+   #+END_SRC
+
+** Теперь можно делать rsync без пароля <2019-11-14 Thu 20:54>
+** Запускаем rsync каждые 2 секунды
+   #+BEGIN_SRC sh
+     watch -n 2 rsync --delete -avhze ssh mem@192.168.8.104:~/sem2019_11_14/ ~/sem2019_11_14
+   #+END_SRC
+
+** <2019-11-14 Thu 20:59> Ура!!! Синхонизация есть!
+
+** https://p5js.org/reference/
