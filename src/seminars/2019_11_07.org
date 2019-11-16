@@ -1,8 +1,7 @@
-#+TITLE: 2019/11/07
+#+TITLE: $PATH и окружение
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
 #+HTML_HEAD: <style>div.figure img {max-height:300px;max-width:900px;}</style>
 #+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
-* TODO Переписать TITLE (краткий обзор темы семинара) и дополнить пример с переменной QWER
 * =$PATH=, переменные окружения, как изменить поведение терминала
   Может вы еще не знаете, но терминал в Linux - это диалог с системой
   программирования на языке [[https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29][Bash]]. В нем можно писать циклы и определять
@@ -85,8 +84,8 @@
 ** Что почитать
    - Глава 11 в книге: Командная строка Linux. Полное руководство. Уильям Шоттс.
    - [[https://habr.com/ru/post/471242/][Введение в Bash Shell]] на Habr
-
-* Список вопросов и проблем
+* TODO Переписать TITLE (краткий обзор темы семинара) и дополнить пример с переменной QWER
+* Лог семинара
 ** DONE Полезные команды в терминале
    CLOSED: [2019-11-10 Sun 23:47]
    - echo $foo :: посмотреть значение переменной foo

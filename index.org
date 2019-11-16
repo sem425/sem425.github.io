@@ -5,8 +5,9 @@
 #+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
 
 * Семинары
-** [[file:./2019_11_06.org][Семинар 2019/11/06]]
+** <2019-11-06 Wed>  [[file:./2019_11_06.org][Tmux, Emacs, org-mode, dat, git]]
 
+** <2019-11-07 Thu>  [[file:src/seminars/2019_11_07.org][=$PATH= и окружение]]
 * Литература
   - Командная строка Linux. Полное руководство. Уильям Шоттс.
     ISBN: 978-5-496-02303-0
