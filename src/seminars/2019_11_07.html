@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>$PATH и окружение</title>
-<!-- 2019-11-16 Sat 23:44 -->
+<!-- 2019-11-17 Sun 00:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -255,13 +255,15 @@ for the JavaScript code in this tag.
 Теперь <code>dat</code> можно запустить, набрав в этом же терминале просто
 <code>dat</code>. Однако при открытии другого терминала команда <code>dat</code> не
 сработает и вам снова придется переопределять переменную
-<code>PATH</code>. Почему? 
+<code>PATH</code>. Почему?
+</p>
+
+<p>
 Оказывается, каждый раз при запуске терминала система пытается
 выполнить программу на языке <code>bash</code> в файлике <code>~/.bashrc</code>. 
 Правка этого файла может коренным образом поменять поведение
 терминала, в том числе поможет избавиться от постоянных
-переопределений переменной <code>PATH</code>.
-Добавьте в этот файл строку:
+переопределений переменной <code>PATH</code>. Добавьте в этот файл строку:
 </p>
 
 <div class="org-src-container">
@@ -418,7 +420,7 @@ x, i:<span style="color: #63b8ff;">integer</span>;
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-11-16 Sat 23:44</p>
+<p class="date">Created: 2019-11-17 Sun 00:12</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
