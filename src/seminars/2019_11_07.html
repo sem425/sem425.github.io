@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>$PATH и окружение</title>
+<!-- 2019-11-16 Sat 23:44 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="org.css" />
+<style>div.figure img {max-height:300px;max-width:900px;}</style>
+<style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">$PATH и окружение</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. <code>$PATH</code>, переменные окружения, как изменить поведение терминала</a></li>
+<li><a href="#sec-2">2. Лог семинара</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> <code>$PATH</code>, переменные окружения, как изменить поведение терминала</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Может вы еще не знаете, но терминал в Linux - это диалог с системой
+программирования на языке <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a>. В нем можно писать циклы и определять
+переменные - с тем, чтобы писать скрипты. 
+</p>
+
+<p>
+Когда вы запустили терминал, в нем уже определены некоторые
+переменные. Эти переменные определяют поведение системы. Сейчас нам
+нужно изменить переменную <code>PATH</code>. В этой переменной хранится
+список директорий, где система будет искать программы. Когда вы
+набираете <code>firefo</code> и жмете следом <code>TAB</code>, терминал дополняет <code>firefo</code>
+до слова <code>firefox</code>, поскольку знает, что первым словом указывается
+название программы, а программа <code>firefox</code> лежит не где-то в
+неизвестной директории, а в директории, которая есть в переменной
+<code>PATH</code>. 
+</p>
+
+<p>
+Вы можете посмотреть значение переменной <code>PATH</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b0c4de;">echo</span> $<span style="color: #7fffd4;">PATH</span>
+<span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">/run/wrappers/bin:/run/current-system/sw/bin</span>
+</pre>
+</div>
+
+<p>
+На прошлом семинаре мы поставили <a href="https://dat.foundation/">dat</a> с помощью <a href="https://www.npmjs.com/">npm</a> в директорию
+<code>~/.npm-packages/bin</code>. Нам пришлось настроить <code>npm</code>, сделав правку в
+файле <code>~/.npmrc</code>. Многие заметили, что система не способна найти
+программу <code>dat</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">dat
+<span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">sh: line 1: dat: command not found</span>
+</pre>
+</div>
+
+<p>
+Чтобы запустить <code>dat</code>, приходилось указывать полный путь к программе
+от домашней директории:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">~/.npm-packages/bin/dat
+<span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">Usage: dat &lt;cmd&gt; [&lt;dir&gt;] [options]</span>
+<span style="color: #fa8072;"># </span>
+<span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">Sharing Files:</span>
+<span style="color: #fa8072;">#    </span><span style="color: #ff7f24; font-style: italic;">dat share                   create dat, import files, share to network</span>
+<span style="color: #fa8072;">#    </span><span style="color: #ff7f24; font-style: italic;">dat create                  create empty dat and dat.json</span>
+<span style="color: #fa8072;">#    </span><span style="color: #ff7f24; font-style: italic;">dat sync                    import files to existing dat &amp; sync with network</span>
+</pre>
+</div>
+
+<p>
+Естественное желание - изменить переменную <code>PATH</code> так, чтобы
+терминал автоматически находил команду dat.
+</p>
+
+<p>
+Кратковременный эффект можно получить, выполнив в терминале:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">PATH</span>=$<span style="color: #7fffd4;">HOME</span>/.npm-packages:$<span style="color: #7fffd4;">PATH</span>
+</pre>
+</div>
+
+<p>
+Попробуйте выполнить следующее упражнение, чтобы понять, как
+работает вышеописанный кусок кода.
+</p>
+
+<div class="exercise">
+<p>
+Вы обратили внимание на переменную <code>HOME</code>? Посмотрите, чему равно ее
+значение. Определите значение переменной <code>QWER</code> равное
+"world". Проверьте значение <code>QWER</code>. Выполните:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">QWER</span>=<span style="color: #ffc1c1;">"hello "</span>$<span style="color: #7fffd4;">QWER</span>
+</pre>
+</div>
+
+<p>
+Посмотрите теперь на значение <code>QWER</code>.
+</p>
+
+</div>
+
+<p>
+Теперь <code>dat</code> можно запустить, набрав в этом же терминале просто
+<code>dat</code>. Однако при открытии другого терминала команда <code>dat</code> не
+сработает и вам снова придется переопределять переменную
+<code>PATH</code>. Почему? 
+Оказывается, каждый раз при запуске терминала система пытается
+выполнить программу на языке <code>bash</code> в файлике <code>~/.bashrc</code>. 
+Правка этого файла может коренным образом поменять поведение
+терминала, в том числе поможет избавиться от постоянных
+переопределений переменной <code>PATH</code>.
+Добавьте в этот файл строку:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">PATH</span>=$<span style="color: #7fffd4;">HOME</span>/.npm-packages:$<span style="color: #7fffd4;">PATH</span>
+</pre>
+</div>
+
+<p>
+Теперь в любом терминале вы сможете быстро запустить <code>dat</code>.
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Что почитать</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Глава 11 в книге: Командная строка Linux. Полное руководство. Уильям Шоттс.
+</li>
+<li><a href="https://habr.com/ru/post/471242/">Введение в Bash Shell</a> на Habr
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Лог семинара</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> <span class="done DONE">DONE</span> Полезные команды в терминале</h3>
+<div class="outline-text-3" id="text-2-1">
+<dl class="org-dl">
+<dt> echo $foo </dt><dd>посмотреть значение переменной foo
+</dd>
+<dt> env </dt><dd>посмотреть список всех переменных
+</dd>
+<dt> export foo=5 </dt><dd>положить в переменную foo значение 5
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> <span class="done DONE">DONE</span> Вопрос: Как выйти из emacs?</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Ответ: <code>C-x-c</code>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> <span class="todo TODO">TODO</span> Проблема: инструкция по tmux затерялась в прошлом семинаре</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Не все её могут найти. Особенно те, кто не собирается смотреть историю семинаров.
+Решение: вынести ее на главную страницу сайта.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> Компьютерная графика p5js</h3>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> <span class="done DONE">DONE</span> Как ставить timestamp в org-mode?</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Ответ: сочетание <code>C-u C-c .</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> <span class="todo TODO">TODO</span> Как получать документацию по emacs, info, org-mode?</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-07 Thu 20:38&gt;</span></span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> <span class="todo TODO">TODO</span> Научиться писать программы на Pascal и C</h3>
+</div>
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> <span class="todo TODO">TODO</span> Как сделать так, чтобы результат компиляции кода на С выдавался непосредственно, а не через создающийся выходной файл?</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-07 Thu 20:51&gt;</span></span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> <span class="done DONE">DONE</span> Пишем код на Pascal</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-07 Thu 20:54&gt;</span></span> 
+Есть два способа:
+</p>
+<ol class="org-ol">
+<li>Пишем в отдельном фале
+</li>
+<li>Пишем тут в org-mode
+</li>
+</ol>
+</div>
+
+<div id="outline-container-sec-2-9-1" class="outline-4">
+<h4 id="sec-2-9-1"><span class="section-number-4">2.9.1</span> В отдельном <a href="./2019_11_07/hello.pas">hello.pas</a></h4>
+<div class="outline-text-4" id="text-2-9-1">
+</div><ol class="org-ol"><li><a id="sec-2-9-1-1" name="sec-2-9-1-1"></a>Редактирование файла + компиляция + запуск<br  /></li></ol>
+</div>
+
+<div id="outline-container-sec-2-9-2" class="outline-4">
+<h4 id="sec-2-9-2"><span class="section-number-4">2.9.2</span> Пишем прямо тут</h4>
+<div class="outline-text-4" id="text-2-9-2">
+<div class="org-src-container">
+
+<pre class="src src-pascal"><span style="color: #63b8ff;">var</span>
+x, i:<span style="color: #63b8ff;">integer</span>;
+
+<span style="color: #00ffff;">begin</span>
+   x:=1;
+   <span style="color: #00ffff;">for</span> i:=1 <span style="color: #00ffff;">to</span> 100 <span style="color: #00ffff;">do</span> <span style="color: #00ffff;">begin</span>
+      writeln(x);
+      x:=x+1;
+   <span style="color: #00ffff;">end</span>;
+<span style="color: #00ffff;">end</span>.
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10"><span class="section-number-3">2.10</span> <span class="todo TODO">TODO</span> Видюшки по emacs, где кодят на C и голосом</h3>
+</div>
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11"><span class="section-number-3">2.11</span> <span class="done DONE">DONE</span> Потребовалось поставить vscode. Как менять NixOS?</h3>
+<div class="outline-text-3" id="text-2-11">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-07 Thu 21:12&gt;</span></span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12"><span class="section-number-3">2.12</span> <span class="done DONE">DONE</span> Сделать ссылку на конфиг NixOS</h3>
+<div class="outline-text-3" id="text-2-12">
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2019-11-16 Sat 23:44</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

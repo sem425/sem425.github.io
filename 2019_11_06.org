@@ -1,4 +1,4 @@
-#+TITLE: Tmux, Emacs, org-mode, dat, git
+#+TITLE: tmux, emacs, org-mode, dat, git
 #+OPTIONS: toc:1
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
 #+HTML_HEAD: <style>div.figure img {max-height:300px;max-width:900px;}</style>
@@ -14,7 +14,7 @@
    - C-b c :: создать окно
    - C-b n :: переключиться на следующее окно
    - C-b d :: отсоединиться от tmux
-   - =tmux attach= :: присоединиться к сессии tmux
+   - tmux attach :: присоединиться к сессии tmux
    - C-b s :: выбор сессии tmux
 
 * Минимальная конфигурация emacs
@@ -102,7 +102,6 @@
 
 * Экспортируем org файл в html
    Для экспорта надо набрать в emacs сочетание клавиш: =C-c-e h h=.
-
 
 * Git
 ** Что почитать:
