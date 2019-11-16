@@ -1,4 +1,8 @@
 #+TITLE: 2019/11/14
+#+OPTIONS: toc:1
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
+#+HTML_HEAD: <style>div.figure img {max-height:300px;max-width:900px;}</style>
+#+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
 
 * Синхронизация данных
   <2019-11-16 Sat> 
@@ -41,11 +45,11 @@
   #+END_SRC
 
 * Первые скетчи на p5js
-  Первый скетч мы решили сделать по [[https://p5js.org/get-started/][этому туториалу]]. Правда в этом
-  туториале оказалась битая ссылка на =p5.min.js=. Сделав необходимую
-  правку ссылки мы получили два файлика:
+  Первый скетч мы решили сделать по [[https://p5js.org/get-started/][этому туториалу]]. Этот скетч
+  состоит из двух файлов: =index.html= и =sketch.js=, расположенных в
+  директории =sketch0=.
 
-** [[./sketch0/index.html][=index.html=]]
+** [[./sketch0/index.html][index.html]]
    #+BEGIN_SRC html :tangle sketch0/index.html
      <html>
        <head>
@@ -57,7 +61,7 @@
      </html>
    #+END_SRC
 
-** [[./sketch0/sketch.js][=sketch.js=]]
+** [[./sketch0/sketch.js][sketch.js]]
    #+BEGIN_SRC js :tangle sketch0/sketch.js
      function setup() {
        createCanvas(640, 480);
@@ -72,6 +76,96 @@
        ellipse(mouseX, mouseY, 80, 80);
      }
    #+END_SRC
+
+** Структура скетча
+   Логика скетча лежит в =sketch.js= и состоит из двух функций
+*** =setup()=
+    Вызывается в =5p.js= только один раз и предназначена для
+    инициализации сцены. Так функцией =createCanvas= инициализируется
+    холст размером 640x480 пикселей, куда затем можно рисовать
+    функциями: =ellipse=, =line= и другими.
+
+*** =draw()=
+    Скетчи в =p5.js= являются интерактивными анимациями,
+    развивающимеся во времени покадрово. Функция =draw= рисует кадр
+    для =p5.js=, и зовется =p5.js= так часто, что возникает эффект
+    непрерывного движения.
+
+* Рисуем [[https://en.wikipedia.org/wiki/Cycloid][циклоиду]]
+  #+CAPTION: Прилипшая резинка на колесе движется по циклоиде
+  #+NAME:   fig:SED-HR4049
+  [[https://upload.wikimedia.org/wikipedia/commons/6/69/Cycloid_f.gif]]
+  
+  #+BEGIN_SRC js :tangle cycloid_sketch/sketch.js
+    function setup() {
+	createCanvas(1200, 480);
+    }
+
+    let T = 0.0; // время
+    let R = 20;  // радиус колеса
+    let V = 1;  // скорость центра колеса
+    let perimeter = 2 * Math.PI * R;
+
+    function draw() {
+	let dist = T * V;             // пройденное расстояние
+	let C = dist / perimeter;     // число оборотов
+	let angle = 2 * Math.PI * C;  // угол поворота колеса в радианах
+	let x_center = dist;          // X координата центра колеса
+	let y_center = R;             // Y координата центра колеса
+	let x = x_center + R * Math.cos(angle);   // x координата прилипшей резинки
+	let y = y_center + R * Math.sin(angle);   // y координата прилипшей резинки
+
+	ellipse(x, y + 50, 2, 2);
+	T++;
+	if (T > 1200) {
+	    background(255);
+	    T = 0;
+	}
+    }
+  #+END_SRC
+
+  Этот код порождает вот [[./cycloid_sketch/index.html][такой]] скетч:
+  #+HTML: <iframe style="width: 100%;" src="cycloid_sketch/index.html"></iframe>
+
+* Рисуем [[https://en.wikipedia.org/wiki/Cardioid][кардиоиду]]
+  #+BEGIN_SRC js :tangle cardioid_sketch/sketch.js
+    function setup() {
+	createCanvas(300, 200);
+    }
+
+    let T = 0.0;
+    let R_stat = 30;
+    let R_mov  = 30;
+    let speed = 1;
+
+    let xs = [];
+    let ys = [];
+
+    let N = 0;
+
+    function draw() {
+	let S = speed * T;         // пройденный линейный путь
+
+	let A = S / R_stat;  // угол между горизонталью и направленем на центр движужегося колеса
+	let x_center = (R_mov + R_stat) * Math.cos(A); // центр подвижного колеса
+	let y_center = (R_mov + R_stat) * Math.sin(A); // центр подвижного колеса
+
+	let B = A + S / R_mov;  // угол проворта движущегося колеса. Почему надо складывать углы???
+
+	let X = x_center + R_mov * Math.cos(B);
+	let Y = y_center + R_mov * Math.sin(B);
+
+	ellipse(100 + X, 80 + Y, 2, 2);
+	T += 1;
+    }
+  #+END_SRC
+
+  #+HTML: <iframe style="width:300px;height:200px;scrolling:no;" src="cardioid_sketch/index.html"></iframe>
+
+* Еще скетчи:
+  1. [[./sketch1/index.html][sk1]]
+  2. [[./sketch2/index.html][sk2]]
+  3. [[./sketch3/index.html][sk3]]
 
 * Лог семинара
 ** Делаем скетч на p5js
