@@ -171,7 +171,7 @@
 
   #+HTML: <iframe style="width:300px;height:200px;scrolling:no;" src="cardioid_sketch/index.html"></iframe>
 
-* Еще скетчи:
+* Еще скетчи
   1. [[./sketch1/index.html][sk1]]
   2. [[./sketch2/index.html][sk2]]
   3. [[./sketch3/index.html][sk3]]
