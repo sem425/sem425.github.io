@@ -1,64 +1,86 @@
-function setup() {
-    createCanvas(640, 480);
-}
-
+let Width = 380;
+let Height = 380;
 let T = 0.0;
-let R_stationary = 30;
-let R_moving = 15;
-let speed = 1;
+let R_stat = 40;
+let R_mov = 30;
+let speed = 2;
 
 // Есть неподвижная окружность, а есть та, которая катится без проскальзования
 // Надо для произвольного T найти угол между горизонталью и направлением на центр движужегося колеса
 
-let xs = [];
-let ys = [];
+let traceX = []; // X координаты точек следа
+let traceY = []; // Y координаты точек следа
+let traceHead = 0; // индекс головы следа
+let NTracePoints = 400; // Число точек в следе
 
-let N = 0;
-
+function setup() {
+    createCanvas(Width, Height);
+}
 
 function draw() {
     let S = speed * T;         // пройденный линейный путь
-    let A = S / R_stationary;  // угол между горизонталью и направленем на центр движужегося колеса
-    let B = A + S / R_moving;      // угол проворта движущегося колеса
+    let A = S / R_stat;        // угол между горизонталью и направленем на центр движужегося колеса
+    let B = A + S / R_mov;     // угол проворта движущегося колеса
 
-    let x_center_moving = (R_moving + R_stationary) * Math.cos(A); // центр подвижного колеса
-    let y_center_moving = (R_moving + R_stationary) * Math.sin(A); // центр подвижного колеса
-    let x_moving = R_moving * Math.cos(B); // в системе подвижного колеса это координата жвачки
-    let y_moving = R_moving * Math.sin(B); 
-    let x = x_center_moving + x_moving; // координата точки
-    let y = y_center_moving + y_moving; // координата точки
-    xs.push(x);
-    ys.push(y);
-    if (N > 2000) {
-	xs.shift();
-	ys.shift();
-    }
+    let x_center = (R_mov + R_stat) * Math.cos(A); // центр подвижного колеса
+    let y_center = (R_mov + R_stat) * Math.sin(A); // центр подвижного колеса
+    let X = x_center + R_mov * Math.cos(B);        // X положение метки
+    let Y = y_center + R_mov * Math.sin(B);        // Y положение метки
+
+    translate(Width / 2, Height / 2); // переносим центр координат
+    // Задаем цвет фона
     background(255);
+    
+    // Рисуем неподвижное колесо
     fill(255,255,255);
     stroke(0,0,0);
-    ellipse(200, 200, R_stationary * 2, R_stationary * 2);
-    //    fill(0,0,0);
-    stroke(0,0,0);
-    ellipse(200 + x_center_moving, 200 + y_center_moving, R_moving * 2, R_moving * 2);
-    let NV = 12;
-    for(let i = 0; i < NV; i++) {
-	let x0 = x_center_moving + R_moving * Math.cos(B + i*2*Math.PI / NV);
-	let y0 = y_center_moving + R_moving * Math.sin(B + i*2*Math.PI / NV);
-	line(200 + x_center_moving, 200 + y_center_moving, 200 + x0, 200 + y0);
-	
+    ellipse(0, 0, 2 * R_stat, 2 * R_stat);
+
+    // Рисуем подвижное колесо
+    ellipse(x_center, y_center, 2 * R_mov, 2 * R_mov);
+
+    let NSpokes = 9;
+    for (let n = 0; n < NSpokes; n++) {
+	let a = B + 2 * Math.PI * n / NSpokes;
+	let x = x_center + R_mov * Math.cos(a);
+	let y = y_center + R_mov * Math.sin(a);
+	line(x_center, y_center, x, y);
     }
 
+    // Рисуем метку
     fill(255, 0, 0);
-    ellipse(200 + x, 200 + y, 4, 4);
+    stroke(255);
+    ellipse(X, Y, 5, 5);
 
-    fill(0,0,255);
-    let mag = 255.0;
-    for (let i = xs.length - 2; i >= 0; i--) {
-	mag *= 0.999;
-	stroke(255 - mag,255 - mag,255 - mag);
-	line(200 + xs[i], 200 + ys[i], 200 + xs[i+1], 200 + ys[i+1]);
-//	ellipse(200 + xs[i], 200 + ys[i], 1, 1);
+    // Рисуем след
+    // добавляем точки следа, пока их не стало NTracePoints
+
+    // [] -a- [a] -b- [ab] -c- [abc] -d- [abcd] -e- [ebcd] -f- [efcd] -g- [efgd] -h- [efgh]
+    //          _        _         _      _           _           _           _       _
+    //          1        2         3      0           1           2           3       0
+    // [] -a- [a] -b- [ba] -c- [cba] -d- [dcba] -e- [edcb] -f- [fedc] -g- [gfed] -h- [hgfe]
+
+    
+    if (traceX.length < NTracePoints) {
+	traceX.push(X);
+	traceY.push(Y);
+	traceHead++;
+	traceHead %= NTracePoints;
+    } else {
+	traceX[traceHead] = X;
+	traceY[traceHead] = Y;
+	traceHead++;
+	traceHead %= NTracePoints;
     }
-    T += 2;
-    N += 1;
+
+    let mag = 255.0;
+    for (let n = 0; n + 1 < NTracePoints; n++) {
+	let th0 = (NTracePoints + traceHead - 1 - n) % NTracePoints;
+	let th1 = (NTracePoints + th0 - 1) % NTracePoints;
+
+	stroke(mag,255 - mag,255 - mag);
+	line(traceX[th0], traceY[th0], traceX[th1], traceY[th1]);
+	mag *= 0.995;
+    }
+    T += 1;
 }

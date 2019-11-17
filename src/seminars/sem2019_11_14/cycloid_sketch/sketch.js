@@ -16,10 +16,10 @@ function draw() {
     let x = x_center + R * Math.cos(angle);   // x координата прилипшей резинки
     let y = y_center + R * Math.sin(angle);   // y координата прилипшей резинки
 
+    background(255, 255, 255, 3);
     ellipse(x, y + 50, 2, 2);
     T++;
     if (T > 1200) {
-	background(255);
 	T = 0;
     }
 }
