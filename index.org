@@ -8,6 +8,7 @@
 ** <2019-11-06 Wed>  [[file:./2019_11_06.org][Tmux, Emacs, org-mode, dat, git]]
 
 ** <2019-11-07 Thu>  [[file:src/seminars/2019_11_07.org][=$PATH= и окружение]]
+** <2019-11-14 Thu>  [[file:./src/seminars/sem2019_11_14/sem.org][rsync, ssh-keygen, p5.js]]
 * Литература
   - Командная строка Linux. Полное руководство. Уильям Шоттс.
     ISBN: 978-5-496-02303-0
