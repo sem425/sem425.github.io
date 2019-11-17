@@ -7,6 +7,7 @@
 * Семинары
 ** <2019-11-06 Wed> [[file:./2019_11_06.org][tmux, emacs, org-mode, dat, git]]
 ** <2019-11-07 Thu> [[file:src/seminars/2019_11_07.org][=$PATH= и окружение]]
+** <2019-11-14 Thu> [[file:./src/seminars/sem2019_11_14/sem.org][rsync, ssh-keygen, p5.js]]
 
 * Чем мы пользуемся на семинарах
   На семинарах мы сидим в [[https://nixos.org/][NixOS]] на [[https://github.com/sem425/nixconfig][этом конфиге]]. Участники семинара
