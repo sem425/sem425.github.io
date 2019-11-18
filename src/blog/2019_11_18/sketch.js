@@ -2,8 +2,9 @@ let Width = 380;
 let Height = 380;
 let R = 100;
 let N = 100;
-let dA = 2*Math.PI / N;
+let dA = 2*Math.PI / N;;
 let k = 1.0;
+let NFrame = 1;
 
 function setup() {
     createCanvas(Width, Height);
@@ -14,11 +15,12 @@ function draw() {
     translate(Width / 2, Height / 2);
     stroke(255, 100, 0);
     fill(255, 100, 0);
-    text(k, -30, -110);
+    text('k: ' + k, -30, -110);
     fill(255);
     stroke(0);
     ellipse(0, 0, 2*R, 2*R);
     stroke(255, 100, 0);
+
     for(let n = 0; n < N; n++) {
 	  let a = n * dA;
 	  let x0 = R * Math.cos(a);
@@ -28,6 +30,6 @@ function draw() {
 	  line(x0, y0, x1, y1);
       }
 
-    k *= 1.001;
-
+    k += 1 / Math.sqrt((NFrame + 100));
+    NFrame++;
 }
