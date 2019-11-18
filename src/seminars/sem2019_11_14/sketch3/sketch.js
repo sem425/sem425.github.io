@@ -11,10 +11,19 @@ let speed = 2;
 let traceX = []; // X координаты точек следа
 let traceY = []; // Y координаты точек следа
 let traceHead = 0; // индекс головы следа
-let NTracePoints = 400; // Число точек в следе
+let NTracePoints = 370; // Число точек в следе
+let mags = []; // яркости точек следа
+let damping = 0.995;
 
 function setup() {
     createCanvas(Width, Height);
+
+    for (let n = 0, m = 255; n < NTracePoints; n++) {
+	mags.push(m);
+	m *= damping;
+    }
+    
+    mags.reverse()
 }
 
 function draw() {
@@ -50,7 +59,7 @@ function draw() {
     // Рисуем метку
     fill(255, 0, 0);
     stroke(255);
-    ellipse(X, Y, 5, 5);
+    ellipse(X, Y, 8, 8);
 
     // Рисуем след
     // добавляем точки следа, пока их не стало NTracePoints
@@ -73,14 +82,13 @@ function draw() {
 	traceHead %= NTracePoints;
     }
 
-    let mag = 255.0;
     for (let n = 0; n + 1 < NTracePoints; n++) {
-	let th0 = (NTracePoints + traceHead - 1 - n) % NTracePoints;
-	let th1 = (NTracePoints + th0 - 1) % NTracePoints;
-
-	stroke(mag,255 - mag,255 - mag);
+	let th0 = (traceHead + n) % NTracePoints;
+	let th1 = (th0 + 1) % NTracePoints;
+	
+	stroke(mags[n], 255 - mags[n], 255 - mags[n]);
 	line(traceX[th0], traceY[th0], traceX[th1], traceY[th1]);
-	mag *= 0.995;
+	mag *= 0.9;
     }
     T += 1;
 }

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-11-17 Sun 22:53 -->
+<!-- 2019-11-18 Mon 12:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>rsync, ssh-keygen, p5.js</title>
@@ -236,18 +236,18 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org303cf85">1. Синхронизация данных</a></li>
-<li><a href="#orgaab5f0b">2. Первые скетчи на p5.js</a></li>
-<li><a href="#org599b7d8">3. Рисуем циклоиду</a></li>
-<li><a href="#org1390f5a">4. Рисуем кардиоиду</a></li>
-<li><a href="#orgc2847bf">5. Еще скетчи</a></li>
-<li><a href="#org6b90aec">6. Лог семинара</a></li>
+<li><a href="#org6ad69d1">1. Синхронизация данных</a></li>
+<li><a href="#orga1d77c2">2. Первые скетчи на p5.js</a></li>
+<li><a href="#org2e85980">3. Рисуем циклоиду</a></li>
+<li><a href="#org059af05">4. Рисуем кардиоиду</a></li>
+<li><a href="#orgbdef0fd">5. Еще скетчи</a></li>
+<li><a href="#orgceb4684">6. Лог семинара</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org303cf85" class="outline-2">
-<h2 id="org303cf85"><span class="section-number-2">1</span> Синхронизация данных</h2>
+<div id="outline-container-org6ad69d1" class="outline-2">
+<h2 id="org6ad69d1"><span class="section-number-2">1</span> Синхронизация данных</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-16 Sat&gt; </span></span> 
@@ -321,8 +321,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgaab5f0b" class="outline-2">
-<h2 id="orgaab5f0b"><span class="section-number-2">2</span> Первые скетчи на p5.js</h2>
+<div id="outline-container-orga1d77c2" class="outline-2">
+<h2 id="orga1d77c2"><span class="section-number-2">2</span> Первые скетчи на p5.js</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Первый скетч мы решили сделать по <a href="https://p5js.org/get-started/">этому туториалу</a>. Этот скетч
@@ -331,8 +331,8 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<div id="outline-container-orgece38e7" class="outline-3">
-<h3 id="orgece38e7"><span class="section-number-3">2.1</span> <a href="./sketch0/index.html">index.html</a></h3>
+<div id="outline-container-orgc1d70be" class="outline-3">
+<h3 id="orgc1d70be"><span class="section-number-3">2.1</span> <a href="./sketch0/index.html">index.html</a></h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-html">&lt;<span style="color: #00fa9a; font-size: 110%; font-weight: bold;">html</span>&gt;
@@ -348,8 +348,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org804cbcb" class="outline-3">
-<h3 id="org804cbcb"><span class="section-number-3">2.2</span> <a href="./sketch0/sketch.js">sketch.js</a></h3>
+<div id="outline-container-org4138d65" class="outline-3">
+<h3 id="org4138d65"><span class="section-number-3">2.2</span> <a href="./sketch0/sketch.js">sketch.js</a></h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">setup</span>() {
@@ -369,15 +369,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orga72f15c" class="outline-3">
-<h3 id="orga72f15c"><span class="section-number-3">2.3</span> Структура скетча</h3>
+<div id="outline-container-org7581f24" class="outline-3">
+<h3 id="org7581f24"><span class="section-number-3">2.3</span> Структура скетча</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Логика скетча лежит в <code>sketch.js</code> и состоит из двух функций:
 </p>
 </div>
-<div id="outline-container-org14d344d" class="outline-4">
-<h4 id="org14d344d"><span class="section-number-4">2.3.1</span> <code>setup()</code></h4>
+<div id="outline-container-org54ed94c" class="outline-4">
+<h4 id="org54ed94c"><span class="section-number-4">2.3.1</span> <code>setup()</code></h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 Вызывается в <code>p5.js</code> только один раз и предназначена для
@@ -388,8 +388,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgac747b9" class="outline-4">
-<h4 id="orgac747b9"><span class="section-number-4">2.3.2</span> <code>draw()</code></h4>
+<div id="outline-container-org551b572" class="outline-4">
+<h4 id="org551b572"><span class="section-number-4">2.3.2</span> <code>draw()</code></h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 Скетчи в <code>p5.js</code> являются интерактивными анимациями,
@@ -402,8 +402,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org599b7d8" class="outline-2">
-<h2 id="org599b7d8"><span class="section-number-2">3</span> Рисуем <a href="https://en.wikipedia.org/wiki/Cycloid">циклоиду</a></h2>
+<div id="outline-container-org2e85980" class="outline-2">
+<h2 id="org2e85980"><span class="section-number-2">3</span> Рисуем <a href="https://en.wikipedia.org/wiki/Cycloid">циклоиду</a></h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">setup</span>() {
@@ -441,8 +441,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org1390f5a" class="outline-2">
-<h2 id="org1390f5a"><span class="section-number-2">4</span> Рисуем <a href="https://en.wikipedia.org/wiki/Cardioid">кардиоиду</a></h2>
+<div id="outline-container-org059af05" class="outline-2">
+<h2 id="org059af05"><span class="section-number-2">4</span> Рисуем <a href="https://en.wikipedia.org/wiki/Cardioid">кардиоиду</a></h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">setup</span>() {
@@ -482,8 +482,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgc2847bf" class="outline-2">
-<h2 id="orgc2847bf"><span class="section-number-2">5</span> Еще скетчи</h2>
+<div id="outline-container-orgbdef0fd" class="outline-2">
+<h2 id="orgbdef0fd"><span class="section-number-2">5</span> Еще скетчи</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">setup</span>() {
@@ -530,10 +530,19 @@ for the JavaScript code in this tag.
 <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">traceX</span> = []; <span style="color: #fa8072;">// </span><span style="color: #ff7f24; font-style: italic;">X &#1082;&#1086;&#1086;&#1088;&#1076;&#1080;&#1085;&#1072;&#1090;&#1099; &#1090;&#1086;&#1095;&#1077;&#1082; &#1089;&#1083;&#1077;&#1076;&#1072;</span>
 <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">traceY</span> = []; <span style="color: #fa8072;">// </span><span style="color: #ff7f24; font-style: italic;">Y &#1082;&#1086;&#1086;&#1088;&#1076;&#1080;&#1085;&#1072;&#1090;&#1099; &#1090;&#1086;&#1095;&#1077;&#1082; &#1089;&#1083;&#1077;&#1076;&#1072;</span>
 <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">traceHead</span> = 0; <span style="color: #fa8072;">// </span><span style="color: #ff7f24; font-style: italic;">&#1080;&#1085;&#1076;&#1077;&#1082;&#1089; &#1075;&#1086;&#1083;&#1086;&#1074;&#1099; &#1089;&#1083;&#1077;&#1076;&#1072;</span>
-<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">NTracePoints</span> = 400; <span style="color: #fa8072;">// </span><span style="color: #ff7f24; font-style: italic;">&#1063;&#1080;&#1089;&#1083;&#1086; &#1090;&#1086;&#1095;&#1077;&#1082; &#1074; &#1089;&#1083;&#1077;&#1076;&#1077;</span>
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">NTracePoints</span> = 370; <span style="color: #fa8072;">// </span><span style="color: #ff7f24; font-style: italic;">&#1063;&#1080;&#1089;&#1083;&#1086; &#1090;&#1086;&#1095;&#1077;&#1082; &#1074; &#1089;&#1083;&#1077;&#1076;&#1077;</span>
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">mags</span> = []; <span style="color: #fa8072;">// </span><span style="color: #ff7f24; font-style: italic;">&#1103;&#1088;&#1082;&#1086;&#1089;&#1090;&#1080; &#1090;&#1086;&#1095;&#1077;&#1082; &#1089;&#1083;&#1077;&#1076;&#1072;</span>
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">damping</span> = 0.995;
 
 <span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">setup</span>() {
     createCanvas(Width, Height);
+
+    <span style="color: #00ffff;">for</span> (<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">n</span> = 0, <span style="color: #7fffd4;">m</span> = 255; n &lt; NTracePoints; n++) {
+        mags.push(m);
+        m *= damping;
+    }
+
+    mags.reverse()
 }
 
 <span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">draw</span>() {
@@ -569,7 +578,7 @@ for the JavaScript code in this tag.
     <span style="color: #fa8072;">// </span><span style="color: #ff7f24; font-style: italic;">&#1056;&#1080;&#1089;&#1091;&#1077;&#1084; &#1084;&#1077;&#1090;&#1082;&#1091;</span>
     fill(255, 0, 0);
     stroke(255);
-    ellipse(X, Y, 5, 5);
+    ellipse(X, Y, 8, 8);
 
     <span style="color: #fa8072;">// </span><span style="color: #ff7f24; font-style: italic;">&#1056;&#1080;&#1089;&#1091;&#1077;&#1084; &#1089;&#1083;&#1077;&#1076;</span>
     <span style="color: #fa8072;">// </span><span style="color: #ff7f24; font-style: italic;">&#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1103;&#1077;&#1084; &#1090;&#1086;&#1095;&#1082;&#1080; &#1089;&#1083;&#1077;&#1076;&#1072;, &#1087;&#1086;&#1082;&#1072; &#1080;&#1093; &#1085;&#1077; &#1089;&#1090;&#1072;&#1083;&#1086; NTracePoints</span>
@@ -592,14 +601,13 @@ for the JavaScript code in this tag.
         traceHead %= NTracePoints;
     }
 
-    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">mag</span> = 255.0;
     <span style="color: #00ffff;">for</span> (<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">n</span> = 0; n + 1 &lt; NTracePoints; n++) {
-        <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">th0</span> = (NTracePoints + traceHead - 1 - n) % NTracePoints;
-        <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">th1</span> = (NTracePoints + th0 - 1) % NTracePoints;
+        <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">th0</span> = (traceHead + n) % NTracePoints;
+        <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">th1</span> = (th0 + 1) % NTracePoints;
 
-        stroke(mag,255 - mag,255 - mag);
+        stroke(mags[n], 255 - mags[n], 255 - mags[n]);
         line(traceX[th0], traceY[th0], traceX[th1], traceY[th1]);
-        mag *= 0.995;
+        mag *= 0.9;
     }
     T += 1;
 }
@@ -609,28 +617,28 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org6b90aec" class="outline-2">
-<h2 id="org6b90aec"><span class="section-number-2">6</span> Лог семинара</h2>
+<div id="outline-container-orgceb4684" class="outline-2">
+<h2 id="orgceb4684"><span class="section-number-2">6</span> Лог семинара</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orge2b2e80" class="outline-3">
-<h3 id="orge2b2e80"><span class="section-number-3">6.1</span> Делаем скетч на p5js</h3>
+<div id="outline-container-org2b5dafc" class="outline-3">
+<h3 id="org2b5dafc"><span class="section-number-3">6.1</span> Делаем скетч на p5js</h3>
 <div class="outline-text-3" id="text-6-1">
 </div>
-<div id="outline-container-org5256adf" class="outline-4">
-<h4 id="org5256adf"><span class="section-number-4">6.1.1</span> С помощью npm через проект</h4>
+<div id="outline-container-org7512092" class="outline-4">
+<h4 id="org7512092"><span class="section-number-4">6.1.1</span> С помощью npm через проект</h4>
 </div>
-<div id="outline-container-org7746b9d" class="outline-4">
-<h4 id="org7746b9d"><span class="section-number-4">6.1.2</span> На коленке создать html файл и js файл</h4>
+<div id="outline-container-org5c363b2" class="outline-4">
+<h4 id="org5c363b2"><span class="section-number-4">6.1.2</span> На коленке создать html файл и js файл</h4>
 </div>
 </div>
 
-<div id="outline-container-orgda103ae" class="outline-3">
-<h3 id="orgda103ae"><span class="section-number-3">6.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 19:21&gt; </span></span> Настройка dat</h3>
+<div id="outline-container-org58b9a5d" class="outline-3">
+<h3 id="org58b9a5d"><span class="section-number-3">6.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 19:21&gt; </span></span> Настройка dat</h3>
 <div class="outline-text-3" id="text-6-2">
 </div>
-<div id="outline-container-org13d87e9" class="outline-4">
-<h4 id="org13d87e9"><span class="section-number-4">6.2.1</span> В файлике <code>~/.npmrc</code> пишем:</h4>
+<div id="outline-container-orgf050a6c" class="outline-4">
+<h4 id="orgf050a6c"><span class="section-number-4">6.2.1</span> В файлике <code>~/.npmrc</code> пишем:</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <div class="org-src-container">
 <pre class="src src-sh">prefix = ${<span style="color: #7fffd4;">HOME</span>}
@@ -639,8 +647,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org5bf21e4" class="outline-4">
-<h4 id="org5bf21e4"><span class="section-number-4">6.2.2</span> Запускаем установку:</h4>
+<div id="outline-container-org6f96424" class="outline-4">
+<h4 id="org6f96424"><span class="section-number-4">6.2.2</span> Запускаем установку:</h4>
 <div class="outline-text-4" id="text-6-2-2">
 <div class="org-src-container">
 <pre class="src src-sh">npm install -g dat
@@ -650,8 +658,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org1f808e0" class="outline-3">
-<h3 id="org1f808e0"><span class="section-number-3">6.3</span> Использование dat</h3>
+<div id="outline-container-org80da55a" class="outline-3">
+<h3 id="org80da55a"><span class="section-number-3">6.3</span> Использование dat</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Договоримся об обозначениях:
@@ -663,8 +671,8 @@ for the JavaScript code in this tag.
 </dl>
 </div>
 
-<div id="outline-container-org49214ce" class="outline-4">
-<h4 id="org49214ce"><span class="section-number-4">6.3.1</span> Как раздать контент:</h4>
+<div id="outline-container-org4dcab33" class="outline-4">
+<h4 id="org4dcab33"><span class="section-number-4">6.3.1</span> Как раздать контент:</h4>
 <div class="outline-text-4" id="text-6-3-1">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #b0c4de;">cd</span> share_dir
@@ -674,8 +682,8 @@ dat share
 </div>
 </div>
 
-<div id="outline-container-org9d60b57" class="outline-4">
-<h4 id="org9d60b57"><span class="section-number-4">6.3.2</span> Как склонировать контент:</h4>
+<div id="outline-container-org2fa0cc2" class="outline-4">
+<h4 id="org2fa0cc2"><span class="section-number-4">6.3.2</span> Как склонировать контент:</h4>
 <div class="outline-text-4" id="text-6-3-2">
 <div class="org-src-container">
 <pre class="src src-sh">dat clone dat_link dest_dir
@@ -684,8 +692,8 @@ dat share
 </div>
 </div>
 
-<div id="outline-container-org0637e63" class="outline-4">
-<h4 id="org0637e63"><span class="section-number-4">6.3.3</span> Как запустить постоянную синхронизацию:</h4>
+<div id="outline-container-org9c88f2a" class="outline-4">
+<h4 id="org9c88f2a"><span class="section-number-4">6.3.3</span> Как запустить постоянную синхронизацию:</h4>
 <div class="outline-text-4" id="text-6-3-3">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #b0c4de;">cd</span> dest_dir
@@ -696,8 +704,8 @@ dat sync
 </div>
 </div>
 
-<div id="outline-container-orgd2867f7" class="outline-3">
-<h3 id="orgd2867f7"><span class="section-number-3">6.4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 19:53&gt; </span></span> Пишем скетч. 1-ый вариант.</h3>
+<div id="outline-container-orgb15fc89" class="outline-3">
+<h3 id="orgb15fc89"><span class="section-number-3">6.4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 19:53&gt; </span></span> Пишем скетч. 1-ый вариант.</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 Создадим директорию <code>./sektch1</code>:
@@ -711,8 +719,8 @@ dat sync
 В директории <code>./sketch1</code> надо создать два файлика:
 </p>
 </div>
-<div id="outline-container-org976be8e" class="outline-4">
-<h4 id="org976be8e"><span class="section-number-4">6.4.1</span> <code>index.html</code></h4>
+<div id="outline-container-orga5947fd" class="outline-4">
+<h4 id="orga5947fd"><span class="section-number-4">6.4.1</span> <code>index.html</code></h4>
 <div class="outline-text-4" id="text-6-4-1">
 <div class="org-src-container">
 <pre class="src src-html">&lt;<span style="color: #00fa9a; font-size: 110%; font-weight: bold;">html</span>&gt;
@@ -729,8 +737,8 @@ dat sync
 </div>
 </div>
 
-<div id="outline-container-orgc5a27ab" class="outline-4">
-<h4 id="orgc5a27ab"><span class="section-number-4">6.4.2</span> <code>sketch.js</code></h4>
+<div id="outline-container-orgef8abd8" class="outline-4">
+<h4 id="orgef8abd8"><span class="section-number-4">6.4.2</span> <code>sketch.js</code></h4>
 <div class="outline-text-4" id="text-6-4-2">
 <div class="org-src-container">
 <pre class="src src-js">
@@ -740,8 +748,8 @@ dat sync
 </div>
 </div>
 
-<div id="outline-container-org3b8a5dc" class="outline-3">
-<h3 id="org3b8a5dc"><span class="section-number-3">6.5</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 20:13&gt; </span></span> А dat-то не работает! Используем rsync.</h3>
+<div id="outline-container-org1b40e9e" class="outline-3">
+<h3 id="org1b40e9e"><span class="section-number-3">6.5</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 20:13&gt; </span></span> А dat-то не работает! Используем rsync.</h3>
 <div class="outline-text-3" id="text-6-5">
 <p>
 На локальной машине создадим директорию <code>sem2019_11_14</code>:
@@ -758,8 +766,8 @@ dat sync
 </div>
 </div>
 
-<div id="outline-container-org8bf25da" class="outline-3">
-<h3 id="org8bf25da"><span class="section-number-3">6.6</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 20:33&gt; </span></span> Генерация ключей</h3>
+<div id="outline-container-org717236b" class="outline-3">
+<h3 id="org717236b"><span class="section-number-3">6.6</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 20:33&gt; </span></span> Генерация ключей</h3>
 <div class="outline-text-3" id="text-6-6">
 <p>
 Запустите ssh-keygen:
@@ -781,8 +789,8 @@ dat sync
 </div>
 </div>
 
-<div id="outline-container-org297d7be" class="outline-3">
-<h3 id="org297d7be"><span class="section-number-3">6.7</span> Собираем публичные ключи</h3>
+<div id="outline-container-org8e4a210" class="outline-3">
+<h3 id="org8e4a210"><span class="section-number-3">6.7</span> Собираем публичные ключи</h3>
 <div class="outline-text-3" id="text-6-7">
 <div class="org-src-container">
 <pre class="src src-sh">scp ~/.ssh/id_rsa.pub mem@192.168.8.104:~/sem2019_11_14/&lt;&#1074;&#1072;&#1096;&#1077;_&#1080;&#1084;&#1103;&gt;.pub
@@ -796,11 +804,11 @@ dat sync
 </div>
 </div>
 
-<div id="outline-container-org1a9d0d0" class="outline-3">
-<h3 id="org1a9d0d0"><span class="section-number-3">6.8</span> Теперь можно делать rsync без пароля <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 20:54&gt;</span></span></h3>
+<div id="outline-container-orge8a3552" class="outline-3">
+<h3 id="orge8a3552"><span class="section-number-3">6.8</span> Теперь можно делать rsync без пароля <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 20:54&gt;</span></span></h3>
 </div>
-<div id="outline-container-orga513f11" class="outline-3">
-<h3 id="orga513f11"><span class="section-number-3">6.9</span> Запускаем rsync каждые 2 секунды</h3>
+<div id="outline-container-org72bf998" class="outline-3">
+<h3 id="org72bf998"><span class="section-number-3">6.9</span> Запускаем rsync каждые 2 секунды</h3>
 <div class="outline-text-3" id="text-6-9">
 <div class="org-src-container">
 <pre class="src src-sh">watch -n 2 rsync --delete -avhze ssh mem@192.168.8.104:~/sem2019_11_14/ ~/sem2019_11_14
@@ -809,17 +817,17 @@ dat sync
 </div>
 </div>
 
-<div id="outline-container-orge5b5e48" class="outline-3">
-<h3 id="orge5b5e48"><span class="section-number-3">6.10</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 20:59&gt; </span></span> Ура! Синхонизация есть!</h3>
+<div id="outline-container-org07c35fe" class="outline-3">
+<h3 id="org07c35fe"><span class="section-number-3">6.10</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu 20:59&gt; </span></span> Ура! Синхонизация есть!</h3>
 </div>
 
-<div id="outline-container-org9720352" class="outline-3">
-<h3 id="org9720352"><span class="section-number-3">6.11</span> <a href="https://p5js.org/reference/">https://p5js.org/reference/</a></h3>
+<div id="outline-container-orga1efd1f" class="outline-3">
+<h3 id="orga1efd1f"><span class="section-number-3">6.11</span> <a href="https://p5js.org/reference/">https://p5js.org/reference/</a></h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-11-17 Sun 22:53</p>
+<p class="date">Created: 2019-11-18 Mon 12:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
