@@ -88,7 +88,6 @@ function draw() {
 	
 	stroke(mags[n], 255 - mags[n], 255 - mags[n]);
 	line(traceX[th0], traceY[th0], traceX[th1], traceY[th1]);
-	mag *= 0.9;
     }
     T += 1;
 }
