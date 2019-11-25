@@ -4,7 +4,7 @@ function setup() {
 
 function retP(x1, y1, r1, x2, y2, r2) {
     let dx = x1 - x2;
-    let dy = x1 - y2;
+    let dy = y1 - y2;
 
     let Q = dx**2 + dy**2;
     let P = r1 + r2;
@@ -25,9 +25,9 @@ function retP(x1, y1, r1, x2, y2, r2) {
     let iy2 = sy2 + y1;
     
     if (S >= 0) {
-	return ix1, iy1, ix2, iy2;
-    } esle {
-	return null;
+	return [ix1, iy1, ix2, iy2];
+    } else {
+	return [null, null, null, null];
     }
 }
 
