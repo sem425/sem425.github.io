@@ -27,7 +27,7 @@ function retP(x1, y1, r1, x2, y2, r2) {
     if (S >= 0) {
 	return [ix1, iy1, ix2, iy2];
     } else {
-	return [null, null, null, null];
+	return null;
     }
 }
 
@@ -47,10 +47,12 @@ function draw() {
     ellipse(x1, y1, 2*r1, 2*r1);
     ellipse(x2, y2, 2*r2, 2*r2);
 
-    let [ix1, iy1, ix2, iy2] = retP(x1, y1, r1, x2, y2, r2);
+    if(retP(x1, y1, r1, x2, y2, r2) != null) {
+	let [ix1, iy1, ix2, iy2] = retP(x1, y1, r1, x2, y2, r2);
 
-    fill(255, 0, 0);
-    ellipse(ix1, iy1, 10, 10);
-    fill(0, 0, 255);
-    ellipse(ix2, iy2, 10, 10);
+	fill(255, 0, 0);
+	ellipse(ix1, iy1, 10, 10);
+	fill(0, 0, 255);
+	ellipse(ix2, iy2, 10, 10);
+    }
 }
