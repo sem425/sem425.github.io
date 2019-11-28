@@ -1,0 +1,10 @@
+#+TITLE: Хищник и жертва
+
+
+* [[https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations][Описание модели]]
+
+  $$\frac{dx}{dt} = \alpha x - \beta xy$$
+  $$\frac{dy}{dt} = \delta xy - \gamma y$$
+
+* [[./sketch/index.html][Модель из шариков]]
+  
