@@ -61,7 +61,7 @@ function relationship(predators, preys, threshold, beta, delta) {
 	let predator = predators[pred_idx];
 
 	let prey_idx = 0;
-	console.log(preys.length);
+	// console.log(preys.length);
 	while(prey_idx < preys.length) {
 	    let prey = preys[prey_idx];
 	    let d = abs(prey[0] - predator[0]) + abs(prey[1] - predator[1]);
@@ -92,7 +92,7 @@ function step() {
 
     let new_predators = relationship(PredatorPopulation, PreyPopulation, DistanceThreshold, Beta, Delta);
 
-    // // добавляем приплод
+    // добавляем приплод
     PreyPopulation = PreyPopulation.concat(new_preys);
     PredatorPopulation = PredatorPopulation.concat(new_predators);
 }
@@ -143,6 +143,10 @@ function draw() {
 	 10, 10);
     drawPopulation(PreyPopulation, [0, 255, 0], 5);
     drawPopulation(PredatorPopulation, [255, 0, 0], 10);
+
+    if(npreys == 0 && npredators == 0) {
+	text("THE END", ((Width / 2) - 50), Height / 2);
+    }
 
     translate(0, Height);
     fill(0);
