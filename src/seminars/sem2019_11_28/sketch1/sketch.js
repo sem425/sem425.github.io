@@ -100,7 +100,6 @@ function predatorExtinction(population, gamma) {
 }
 
 function relationship(predators, preys, threshold, beta, delta) {
-    console.log(beta);
     preys.begin_iterate();
     while(preys.point_to()) {
 	predators.begin_iterate();
