@@ -6,10 +6,10 @@ let dT = 0.1;
 
 let NPrey = 60
 let NPredator = 60;
-let Alpha = 0.003;
-let Gamma = 0.003;
+let Alpha = 0.006;
+let Gamma = 0.001;
 let DistanceThreshold = 10;
-let Beta = 0.5;  // prey's mortality
+let Beta = 0.1;  // prey's mortality
 let Delta = 0.2;
 
 function Population() {
@@ -100,6 +100,7 @@ function predatorExtinction(population, gamma) {
 }
 
 function relationship(predators, preys, threshold, beta, delta) {
+    console.log(beta);
     preys.begin_iterate();
     while(preys.point_to()) {
 	predators.begin_iterate();
@@ -114,11 +115,11 @@ function relationship(predators, preys, threshold, beta, delta) {
 	    if (d < threshold) {
 		if(random() < beta) {
 		    preys.remove();
+		    if(random() < delta) {
+			predators.append(birth(predator));
+		    }
 		}
 
-		if(random() < delta) {
-		    predators.append(birth(predator));
-		}
 	    }
 	    predators.next();
 	}
