@@ -3,22 +3,29 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2019-12-02 Mon 17:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>425</title>
-<!-- 2019-11-17 Sun 14:59 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -45,27 +52,111 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -85,6 +176,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="org.css" />
@@ -95,7 +187,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -141,22 +233,25 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">425</h1>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Семинары</h2>
+<div id="outline-container-org112a86d" class="outline-2">
+<h2 id="org112a86d"><span class="section-number-2">1</span> Семинары</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-06 Wed&gt;</span></span> <a href="./2019_11_06.html">tmux, emacs, org-mode, dat, git</a></h3>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-07 Thu&gt;</span></span> <a href="src/seminars/2019_11_07.html"><code>$PATH</code> и окружение</a></h3>
+<div id="outline-container-org8759f3a" class="outline-3">
+<h3 id="org8759f3a"><span class="section-number-3">1.1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-06 Wed&gt; </span></span> <a href="./2019_11_06.html">tmux, emacs, org-mode, dat, git</a></h3>
 </div>
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu&gt;</span></span> <a href="./src/seminars/sem2019_11_14/sem.html">rsync, ssh-keygen, p5.js</a></h3>
+<div id="outline-container-org41b3164" class="outline-3">
+<h3 id="org41b3164"><span class="section-number-3">1.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-07 Thu&gt; </span></span> <a href="src/seminars/2019_11_07.html"><code>$PATH</code> и окружение</a></h3>
+</div>
+<div id="outline-container-org6de1f69" class="outline-3">
+<h3 id="org6de1f69"><span class="section-number-3">1.3</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-14 Thu&gt; </span></span> <a href="./src/seminars/sem2019_11_14/sem.html">rsync, ssh-keygen, p5.js</a></h3>
+</div>
+<div id="outline-container-org4a4d7d0" class="outline-3">
+<h3 id="org4a4d7d0"><span class="section-number-3">1.4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-28 Thu&gt; </span></span> <a href="./src/seminars/sem2019_11_28/sem.html">Модель Лотки - Вольтерры на p5js</a></h3>
 </div>
 </div>
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Чем мы пользуемся на семинарах</h2>
+<div id="outline-container-orga12ed98" class="outline-2">
+<h2 id="orga12ed98"><span class="section-number-2">2</span> Чем мы пользуемся на семинарах</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 На семинарах мы сидим в <a href="https://nixos.org/">NixOS</a> на <a href="https://github.com/sem425/nixconfig">этом конфиге</a>. Участники семинара
@@ -172,81 +267,65 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="sec-2-0-0-1" name="sec-2-0-0-1"></a><span class="todo TODO">TODO</span> Привести тут список семинарских инструкций по каждому инструменту<br  /><div class="outline-text-5" id="text-2-0-0-1">
+<ul class="org-ul">
+<li><a id="orgf884f31"></a><span class="todo TODO">TODO</span> Привести тут список семинарских инструкций по каждому инструменту<br />
+<div class="outline-text-5" id="text-orgf884f31">
 </div>
-</li></ol>
+</li>
+</ul>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Планы</h2>
+<div id="outline-container-org44d9434" class="outline-2">
+<h2 id="org44d9434"><span class="section-number-2">3</span> Планы</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Инструменты</h3>
+</div>
+<div id="outline-container-org159b964" class="outline-3">
+<h3 id="org159b964"><span class="section-number-3">3.1</span> Инструменты</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> <a href="https://git-scm.com/">git</a>
-</li>
-<li><code>[&#xa0;]</code> <a href="https://en.wikipedia.org/wiki/Secure_Shell">ssh</a> + <a href="https://en.wikipedia.org/wiki/SOCKS">SOCKS</a> туннели
-</li>
-<li><code>[&#xa0;]</code> <a href="https://www.gnu.org/software/emacs/">emacs</a> + <a href="https://orgmode.org/">org mode</a>
-</li>
-<li><code>[&#xa0;]</code> <a href="https://en.wikipedia.org/wiki/Rsync">rsync</a>
-</li>
-<li><code>[&#xa0;]</code> <a href="https://syncthing.net/">syncthing</a>
-</li>
-<li><code>[&#xa0;]</code> <a href="https://openvpn.net/">openvpn</a>
-</li>
-<li><code>[&#xa0;]</code> <a href="https://dat.foundation/">dat</a> + браузер <a href="https://beakerbrowser.com/">Beaker</a>
-</li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://git-scm.com/">git</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://en.wikipedia.org/wiki/Secure_Shell">ssh</a> + <a href="https://en.wikipedia.org/wiki/SOCKS">SOCKS</a> туннели</li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://www.gnu.org/software/emacs/">emacs</a> + <a href="https://orgmode.org/">org mode</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://en.wikipedia.org/wiki/Rsync">rsync</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://syncthing.net/">syncthing</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://openvpn.net/">openvpn</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="https://dat.foundation/">dat</a> + браузер <a href="https://beakerbrowser.com/">Beaker</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Системное программирование</h3>
+<div id="outline-container-org03b665e" class="outline-3">
+<h3 id="org03b665e"><span class="section-number-3">3.2</span> Системное программирование</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> stack and heap в программах на C
-</li>
-<li><code>[&#xa0;]</code> Отладчик gdb
-</li>
-<li><code>[&#xa0;]</code> Указатели и адресная арифметика
-</li>
-<li><code>[&#xa0;]</code> Основы ассемблера + понимание того, как реализована концепция
-функции в языке C в железе
-</li>
-<li><code>[&#xa0;]</code> Работа с динамической памятью
-</li>
-<li><code>[&#xa0;]</code> Работа с файлами
-</li>
-<li><code>[&#xa0;]</code> Межпроцессное взаимодействие, сокеты, tcp, udp
-</li>
-<li><code>[&#xa0;]</code> Многопоточность
-</li>
-<li><code>[&#xa0;]</code> Работа с памятью в языках со встроенным сборщиком мусора
-</li>
+<li class="off"><code>[&#xa0;]</code> stack and heap в программах на C</li>
+<li class="off"><code>[&#xa0;]</code> Отладчик gdb</li>
+<li class="off"><code>[&#xa0;]</code> Указатели и адресная арифметика</li>
+<li class="off"><code>[&#xa0;]</code> Основы ассемблера + понимание того, как реализована концепция
+функции в языке C в железе</li>
+<li class="off"><code>[&#xa0;]</code> Работа с динамической памятью</li>
+<li class="off"><code>[&#xa0;]</code> Работа с файлами</li>
+<li class="off"><code>[&#xa0;]</code> Межпроцессное взаимодействие, сокеты, tcp, udp</li>
+<li class="off"><code>[&#xa0;]</code> Многопоточность</li>
+<li class="off"><code>[&#xa0;]</code> Работа с памятью в языках со встроенным сборщиком мусора</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Art programming</h3>
+<div id="outline-container-org33373e6" class="outline-3">
+<h3 id="org33373e6"><span class="section-number-3">3.3</span> Art programming</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> Основы графики на <code>js</code>
-</li>
-<li><code>[&#xa0;]</code> Разбор художественных произведений + быстрое чтение и
-понимание кода
-</li>
-<li><code>[&#xa0;]</code> Работа со звуком. Live coding
-</li>
-<li><code>[&#xa0;]</code> Интеграция математических понятий в визуальный контекст
-</li>
+<li class="off"><code>[&#xa0;]</code> Основы графики на <code>js</code></li>
+<li class="off"><code>[&#xa0;]</code> Разбор художественных произведений + быстрое чтение и
+понимание кода</li>
+<li class="off"><code>[&#xa0;]</code> Работа со звуком. Live coding</li>
+<li class="off"><code>[&#xa0;]</code> Интеграция математических понятий в визуальный контекст</li>
 </ul>
 </div>
 
-<div id="outline-container-sec-3-3-1" class="outline-4">
-<h4 id="sec-3-3-1"><span class="section-number-4">3.3.1</span> Предлагаю кодить разные математические концепции</h4>
+<div id="outline-container-org8abe9df" class="outline-4">
+<h4 id="org8abe9df"><span class="section-number-4">3.3.1</span> Предлагаю кодить разные математические концепции</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 И учиться думать о них. Например сделать анимацию градиентного спуска, решить задачу n-body,
@@ -258,8 +337,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Алгоритмы</h3>
+<div id="outline-container-org5d6d856" class="outline-3">
+<h3 id="org5d6d856"><span class="section-number-3">3.4</span> Алгоритмы</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 А где вы будете применять алгоритмы? Сперва надо набить шишки в
@@ -270,31 +349,24 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Литература</h2>
+<div id="outline-container-org3b9bce2" class="outline-2">
+<h2 id="org3b9bce2"><span class="section-number-2">4</span> Литература</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Командная строка Linux. Полное руководство. Уильям Шоттс.
-ISBN: 978-5-496-02303-0
-</li>
-<li>Туториал внутри самого emacs: <code>C-u-h t</code> (есть перевод на русский)
-</li>
-<li><a href="http://ergoemacs.org/emacs/emacs.html">Practical Emacs Tutorial</a>
-</li>
-<li><a href="https://www.youtube.com/user/mzamansky/videos">Emacs episodes by Mike Zamansky</a>
-</li>
-<li><a href="https://git-scm.com/book/ru/v2">Git book. Scott Chacon &amp; Ben Straub</a>
-</li>
-<li><a href="https://thebookofshaders.com/">The Book of Shaders</a> by Patricio Gonzalez Vivo and Jen Lowe
-</li>
-<li><a href="https://nixos.org/~eelco/pubs/phd-thesis.pdf">The Purely Functional Software Deployment Model</a> by Eelco Dolstra
-</li>
+ISBN: 978-5-496-02303-0</li>
+<li>Туториал внутри самого emacs: <code>C-u-h t</code> (есть перевод на русский)</li>
+<li><a href="http://ergoemacs.org/emacs/emacs.html">Practical Emacs Tutorial</a></li>
+<li><a href="https://www.youtube.com/user/mzamansky/videos">Emacs episodes by Mike Zamansky</a></li>
+<li><a href="https://git-scm.com/book/ru/v2">Git book. Scott Chacon &amp; Ben Straub</a></li>
+<li><a href="https://thebookofshaders.com/">The Book of Shaders</a> by Patricio Gonzalez Vivo and Jen Lowe</li>
+<li><a href="https://nixos.org/~eelco/pubs/phd-thesis.pdf">The Purely Functional Software Deployment Model</a> by Eelco Dolstra</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Расписание</h2>
+<div id="outline-container-org5ba6b72" class="outline-2">
+<h2 id="org5ba6b72"><span class="section-number-2">5</span> Расписание</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Семинары проходят по средам и четвергам в 3-ем корпусе в 425-ой
@@ -304,8 +376,7 @@ ISBN: 978-5-496-02303-0
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-11-17 Sun 14:59</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2019-12-02 Mon 17:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

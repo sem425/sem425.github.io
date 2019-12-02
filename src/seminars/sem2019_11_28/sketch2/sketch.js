@@ -1,6 +1,6 @@
 let Width = 600;
 let Height = 400;
-let CHeight = Height + 400;
+let CHeight = Height + 200;
 
 let MaxVel = 10;
 let T = 0.0;
