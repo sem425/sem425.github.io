@@ -10,6 +10,7 @@ let python_env = python3.withPackages (ps: with ps;
       scipy
       tqdm
       sympy
+      nbconvert
       ]);
 
     link = "python-env";

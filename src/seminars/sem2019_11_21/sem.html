@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-12-02 Mon 19:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Drawing machine</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Drawing machine</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org0bf4313">1. Описание проекта</a></li>
+<li><a href="#org446b2a3">2. Рассчет точки пересечения на Sympy</a></li>
+<li><a href="#orgbe7d08f">3. Код скетча</a></li>
+</ul>
+</div>
+</div>
+<iframe style="width:610px;height:620px;" src="../../../hw/nastya/2019_11_24/index.html"></iframe>
+
+<p>
+<a href="https://www.youtube.com/watch?v=BG9e06IWAxE">Drawing machine</a>
+</p>
+
+<div id="outline-container-org0bf4313" class="outline-2">
+<h2 id="org0bf4313"><span class="section-number-2">1</span> Описание проекта</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Здесь приведён виртуальная релизация устройства, которое рисует
+фигуры. В рамках этого проекта лежит задача пересчения двух
+окружностей, аналитическое решение которой дает код на python в
+библиотеке <a href="https://www.sympy.org/en/index.html">Sympy</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org446b2a3" class="outline-2">
+<h2 id="org446b2a3"><span class="section-number-2">2</span> <a href="drawing_machine/linkage_calc.html">Рассчет</a> точки пересечения на Sympy</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="drawing_machine/linkage_calc.ipynb">Исходник</a> в jupyter-notebook
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbe7d08f" class="outline-2">
+<h2 id="orgbe7d08f"><span class="section-number-2">3</span> <a href="file:///home/zuba/sem425.github.io/hw/nastya/2019_11_24/sketch.js">Код скетча</a></h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">T</span> = 0.0;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">Height</span> = 400;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">Width</span> = 600;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">HideMachine</span> = <span style="color: #8470ff; font-weight: bold;">false</span>;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">X1</span> = -95;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">Y1</span> = 0;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">X2</span> = 95;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">Y2</span> = 0;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">R1</span> = 50;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">R2</span> = 50;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">L1</span> = 150;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">L2</span> = 150;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">Omega1</span> = 1.0;
+<span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">Omega2</span> = 3.0;
+
+
+<span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">setup</span>() {
+    createCanvas(Width, Height);
+<span style="color: #fa8072;">//    </span><span style="color: #ff7f24; font-style: italic;">background(0);</span>
+}
+
+<span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">retP</span>(<span style="color: #7fffd4;">x1</span>, <span style="color: #7fffd4;">y1</span>, <span style="color: #7fffd4;">r1</span>, <span style="color: #7fffd4;">x2</span>, <span style="color: #7fffd4;">y2</span>, <span style="color: #7fffd4;">r2</span>) {
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">dx</span> = x1 - x2;
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">dy</span> = y1 - y2;
+
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">Q</span> = dx**2 + dy**2;
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">P</span> = r1 + r2;
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">T</span> = r1 - r2;
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">S</span> = (-Q + P**2) * (Q - T**2);
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">K</span> = Q + P * T;
+
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">sx1</span> = (-dx * K + dy * Math.sqrt(S)) / 2 / Q;
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">sy1</span> = -(dy * K + dx * Math.sqrt(S)) / 2 / Q;
+
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">sx2</span> = -(dx * K + dy * Math.sqrt(S)) / 2 / Q;
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">sy2</span> = (-dy * K + dx * Math.sqrt(S)) / 2 / Q;
+
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">ix1</span> = sx1 + x1;
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">iy1</span> = sy1 + y1;
+
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">ix2</span> = sx2 + x1;
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">iy2</span> = sy2 + y1;
+
+    <span style="color: #00ffff;">if</span> (S &gt;= 0) {
+        <span style="color: #00ffff;">return</span> [ix1, iy1, ix2, iy2];
+    } <span style="color: #00ffff;">else</span> {
+        <span style="color: #00ffff;">return</span> <span style="color: #8470ff; font-weight: bold;">null</span>;
+    }
+}
+
+<span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">draw</span>() {
+    <span style="color: #00ffff;">if</span>(!HideMachine) {
+        background(255);
+        <span style="color: #fa8072;">//</span><span style="color: #ff7f24; font-style: italic;">stroke(0);</span>
+        fill(0,0,0,0);
+        text(<span style="color: #ffc1c1;">"Press mouse"</span>, 10, 10);
+    }
+
+    <span style="color: #00ffff;">if</span>(mouseIsPressed) {
+        HideMachine = !HideMachine;
+    }
+
+    translate(Width / 2, Height / 2);
+
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">x1</span> = X1 + R1*Math.cos(Omega1*T);
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">y1</span> = Y1 + R1*Math.sin(Omega1*T);
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">r1</span> = L1; 
+
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">x2</span> = X2 + R2*Math.cos(Omega2*T);
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">y2</span> = Y2 + R2*Math.sin(Omega2*T);
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">r2</span> = L2;
+
+    <span style="color: #00ffff;">if</span>(!HideMachine) {
+        line(X1, Y1, x1, y1);
+        line(X2, Y2, x2, y2);
+        ellipse(x1, y1, 2*r1, 2*r1);
+        ellipse(x2, y2, 2*r2, 2*r2);
+    }
+
+    <span style="color: #00ffff;">let</span> <span style="color: #7fffd4;">v</span> = retP(x1, y1, r1, x2, y2, r2);
+    <span style="color: #00ffff;">if</span>(v != <span style="color: #8470ff; font-weight: bold;">null</span>) {
+        <span style="color: #00ffff;">let</span> [<span style="color: #7fffd4;">ix1</span>, <span style="color: #7fffd4;">iy1</span>, <span style="color: #7fffd4;">ix2</span>, <span style="color: #7fffd4;">iy2</span>] = v;
+        stroke(255, 0, 0);
+        fill(255, 0, 0);
+        ellipse(ix1, iy1, 5, 5);
+        fill(0, 0, 255);
+        stroke(0,0,255);
+        ellipse(ix2, iy2, 5, 5);
+        <span style="color: #00ffff;">if</span>(!HideMachine) {
+            line(x1, y1, ix1, iy1);
+            line(x2, y2, ix1, iy1);
+        }
+    }
+    T += 0.02;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2019-12-02 Mon 19:27</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
