@@ -76,7 +76,7 @@
   - [[https://git-scm.com/book/ru/v2][Git book. Scott Chacon & Ben Straub]]
   - [[https://thebookofshaders.com/][The Book of Shaders]] by Patricio Gonzalez Vivo and Jen Lowe
   - [[https://nixos.org/~eelco/pubs/phd-thesis.pdf][The Purely Functional Software Deployment Model]] by Eelco Dolstra
-
+  - Фейнмановские лекции по физике. Фейнман Р. Лейтон Р. Сэндс М.
 * Расписание
   Семинары проходят по средам и четвергам в 3-ем корпусе в 425-ой
   комнате. Начало семинара в 18:30.
