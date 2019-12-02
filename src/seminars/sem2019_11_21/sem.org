@@ -13,5 +13,5 @@
 * [[file:drawing_machine/linkage_calc.html][Рассчет]] точки пересечения на Sympy
   [[file:./drawing_machine/linkage_calc.ipynb][Исходник]] в jupyter-notebook
 
-* [[file:~/sem425.github.io/hw/nastya/2019_11_24/sketch.js][Код скетча]]
+* [[file:../../../hw/nastya/2019_11_24/sketch.js][Код скетча]]
   #+INCLUDE: "../../../hw/nastya/2019_11_24/sketch.js" src js
