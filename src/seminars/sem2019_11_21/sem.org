@@ -1,14 +1,14 @@
 #+TITLE: Drawing machine
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
+#+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
 
 #+HTML: <iframe style="width:610px;height:620px;" src="../../../hw/nastya/2019_11_24/index.html"></iframe>
 
-[[https://www.youtube.com/watch?v=BG9e06IWAxE][Drawing machine]]
-
 * Описание проекта
-  Здесь приведён виртуальная релизация устройства, которое рисует
-  фигуры. В рамках этого проекта лежит задача пересчения двух
-  окружностей, аналитическое решение которой дает код на python в
-  библиотеке [[https://www.sympy.org/en/index.html][Sympy]].
+  Здесь приведена виртуальная релизация [[https://www.youtube.com/watch?v=BG9e06IWAxE][Drawing machine]] - устройства,
+  которое рисует фигуры. В рамках этого проекта лежит задача
+  пересчения двух окружностей, аналитическое решение которой дает код
+  на python в библиотеке [[https://www.sympy.org/en/index.html][Sympy]].
 
 * [[file:drawing_machine/linkage_calc.html][Рассчет]] точки пересечения на Sympy
   [[file:drawing_machine/linkage_calc.ipynb][Исходник]] в jupyter-notebook
