@@ -29,9 +29,49 @@ function eval_line(x, y) {
     return [x / r2, y / r2];
 }
 
+function eval_line1(p1, p2) {
+    let [x0, y0] = p1;
+    let [x1, y1] = p2;
+
+    // a*x0 + b*y0 = 1
+    // a*x1 + b*y1 = 1
+
+    // a*(x1 - x0) + b*(y1 - y0) = 0
+    // a*x0 + b*y0 = 1
+
+    // a = k/(x1 - x0)
+    // b = k/(y0 - y1)
+
+    // k/(x1 - x0) * x0 + k/(y0 - y1) * y0 = 1
+    // k*[x0/(x1 - x0) + y0*(y0 - y1)] = 1
+    // k = 1 / [x0/(x1 - x0) + y0*(y0 - y1)] = (x1-x0)*(y0-y1) / [x0*(y0 - y1) + y0*(x1 - x0)]
+
+    // a = (y0-y1) / [x0*(y0 - y1) + y0*(x1 - x0)]
+    // b = (x1-x0) / [x0*(y0 - y1) + y0*(x1 - x0)]
+
+    let d = x0*(y0 - y1) + y0*(x1 - x0);
+    let a = (y0 - y1) / d;
+    let b = (x1 - x0) / d;
+    return [a, b];
+}
+
 function draw_line(w){
     let [a,b] = w
-    line(0, 1/b, 1/a, 0);
+    if (b < 0 && a > 0) {
+	// x*a + Height*b = 1
+	// x = (1 - Height*b) / a
+	line((1 - Height*b) / a, Height, 1/a, 0);
+    }
+
+    if (b > 0 && a < 0) {
+	// Width*a + b*y = 1
+	// y = (1 - Width*a) / b
+	line(0, 1/b, Width, (1 - Width*a) / b);
+    }
+    if (a > 0 && b > 0) {
+	line(0, 1/b, 1/a, 0);
+
+    }
 }
 
 function setup() {
@@ -74,9 +114,15 @@ function eval_classifier_score(w) {
 // https://p5js.org/reference/#/p5/loadJSON
 
 function draw() {
+//    background(0,0,0);
     stroke(0,0,0);
-    draw_dataset();
-    let w = eval_line(mouseX, mouseY);
+    let rcoord = () => {
+	return [random(0, Width), random(0, Height)];
+    };
+    let w = eval_line1(rcoord(), rcoord());
+    fill(255,255,255);
+    stroke(255,255,255);
+    //let w = eval_line(random(0, Width), random(0, Height));
     let [a, b] = eval_classifier_score(w);
     stroke(255,255,255);
     stroke(0,0,255);
@@ -84,8 +130,9 @@ function draw() {
 
     fill(255,255,0);
     stroke(255,255,0);
-    ellipse(500 + 150*a, Height - 150*b, 0.5, 0.5);
-
+    ellipse(500 + 150*a, Height - 150*b, 2, 2);
+    stroke(0,0,0);
+    draw_dataset();
 }
 
 
