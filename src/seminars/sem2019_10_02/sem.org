@@ -1,1 +1,14 @@
-#+TITLE: Модель плоской присталлической решетки
+#+TITLE: Модель плоской кристаллической решетки
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
+#+HTML_HEAD_EXTRA: <style>.org-src-container {background-color: #303030; color: #e5e5e5;}</style>
+
+* Описание проекта
+  Здесь приведена виртуальная реализация физической модели
+  плоской, квадратной кристаллической решетки.
+
+  Каждый атом решетки упругим способом взаимодейсвтует с 8-ю соседями
+  (горизонтали, вертикали, диагоналям).
+
+#+HTML: <iframe style="width:610px;height:620px;" src="sketch/index.html"></iframe>
+* [[file:./sketch/index.js][Код скетча]]
+  #+INCLUDE: "sketch/index.js" src js
