@@ -10,5 +10,5 @@
   (горизонтали, вертикали, диагоналям).
 
 #+HTML: <iframe style="width:610px;height:620px;" src="sketch/index.html"></iframe>
-* [[file:./sketch/index.js][Код скетча]]
-  #+INCLUDE: "sketch/index.js" src js
+* [[file:./sketch/sketch.js][Код скетча]]
+  #+INCLUDE: "sketch/sketch.js" src js
