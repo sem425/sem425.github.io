@@ -1,0 +1,14 @@
+#+TITLE: Генераторы статических веб-страниц
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
+#+OPTIONS: toc:nil  
+
+* Timeline
+** <2020-05-04 Mon 19:49> https://jekyllrb.com/
+** <2020-05-04 Mon 19:49> https://daringfireball.net/projects/markdown/
+** <2020-05-04 Mon 20:12> https://pages.github.com/
+** <2020-05-04 Mon 20:15> https://orgmode.org/org.html
+** <2020-05-04 Mon 20:16> http://doc.norang.ca/org-mode.html
+** <2020-05-04 Mon 20:24> https://www.staticgen.com/
+** <2020-05-04 Mon 20:25> https://elm-pages.com/
+** <2020-05-04 Mon 20:25> https://jaspervdj.be/hakyll/
+** <2020-05-04 Mon 20:25> https://jaspervdj.be/hakyll/examples.html

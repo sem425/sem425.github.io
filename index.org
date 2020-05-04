@@ -11,6 +11,8 @@
 ** <2019-11-14 Thu> [[file:./src/seminars/sem2019_11_14/sem.org][rsync, ssh-keygen, p5.js]]
 ** <2019-11-21 Thu> [[file:src/seminars/sem2019_11_21/sem.org][Drawing machine]]
 ** <2019-11-28 Thu> [[file:./src/seminars/sem2019_11_28/sem.org][Модель Лотки - Вольтерры на p5js]]
+** <2020-05-04 Mon> [[file:src/seminars/sem2020_05_04/index.org][Генераторы статических веб-страниц]]
+
 * Чем мы пользуемся на семинарах
   На семинарах мы сидим в [[https://nixos.org/][NixOS]] на [[https://github.com/sem425/nixconfig][этом конфиге]]. Участники семинара
   часть работы выполняют на своих машинах, а часть на удаленном
